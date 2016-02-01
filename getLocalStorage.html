@@ -16,7 +16,10 @@
 	<script type="text/javascript">
 	window.onload = function() {
 		var obj = document.getElementById("name");
-		localStorage.setItem("account", "aaaaa");
+		var account = localStorage.getItem("account");
+		if(account) {
+			obj.value = account;
+		}
 	};
 	</script>
 </body>

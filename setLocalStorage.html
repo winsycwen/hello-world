@@ -16,10 +16,7 @@
 	<script type="text/javascript">
 	window.onload = function() {
 		var obj = document.getElementById("name");
-		var account = localStorage.getItem("account");
-		if(account) {
-			obj.value = account;
-		}
+		localStorage.setItem("account", "aaaaa");
 	};
 	</script>
 </body>
