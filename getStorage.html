@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>test</title>
+</head>
+<body>
+    <h2>获取sessionStorage</h2>
+    <p id="J_boxOne"></p>
+    <h2>获取LocalStorage</h2>
+    <p id="J_boxTwo"></p>
+	
+	<script type="text/javascript">
+	window.onload = function() {
+		var obj1 = document.getElementById("J_boxOne");
+		var obj2 = document.getElementById("J_boxOne");
+		var val1 = sessionStorage.getItem("ss");
+		var val2 = localStorage.getItem("ls");
+		
+		obj1.innerHTML = val1;
+		obj2.innerHTML = val2;
+	};
+	</script>
+</body>
+</html>
