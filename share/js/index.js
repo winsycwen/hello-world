@@ -26,7 +26,7 @@
 					break;
 				case "wb":
 					// window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
-					window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pic));
+					window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pics));
 					break;
 				default: break;
 			}
