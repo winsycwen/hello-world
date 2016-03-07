@@ -6,7 +6,7 @@
 		url: location.href,
 		title: shareTitle,
 		summary: shareContent,
-		pic: sharePicLink
+		pics: sharePicLink
 	};
 	var s = [];
 	for(var i in shareConfig) {
@@ -22,12 +22,11 @@
 					window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join("&"));
 					break;
 				case "qzone":
-					// window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
-					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.title) + "&summary=" + encodeURIComponent(shareConfig.summary) + "&pics=" + encodeURIComponent(shareConfig.pic));
+					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
 					break;
 				case "wb":
 					// window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
-					window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.sharePicLink));
+					window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pic));
 					break;
 				default: break;
 			}
