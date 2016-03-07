@@ -1,9 +1,12 @@
-(function(){var shareTitle = $("#title").text(),
-		shareContent = $("#content").text();
+(function(){
+	var shareTitle = $("#title").text(),
+		shareContent = $("#content").text(),
+		sharePicLink = $(".container img").attr("src");
 	var shareConfig = {
 		url: location.href,
 		title: shareTitle,
-		summary: shareContent
+		summary: shareContent,
+		pic: sharePicLink
 	};
 	var s = [];
 	for(var i in shareConfig) {
@@ -19,13 +22,11 @@
 					window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join("&"));
 					break;
 				case "qzone":
-					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
+					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&") + "#sns_qzone");
 					break;
 				case "wb":
 					window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
-					break;
-				case "douban":
-					window.open("http://widget.renren.com/dialog/share?" + s.join("&"));
+					// window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent("file:///F:/GitHub/hello-world/share/images/test.jpg"));
 					break;
 				default: break;
 			}
