@@ -22,11 +22,12 @@
 					window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join("&"));
 					break;
 				case "qzone":
-					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&") + "#sns_qzone");
+					// window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
+					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.title) + "&summary=" + encodeURIComponent(shareConfig.summary) + "&pics=" + encodeURIComponent(shareConfig.pic));
 					break;
 				case "wb":
-					window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
-					// window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent("file:///F:/GitHub/hello-world/share/images/test.jpg"));
+					// window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
+					window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.sharePicLink));
 					break;
 				default: break;
 			}
