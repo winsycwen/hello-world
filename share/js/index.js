@@ -32,4 +32,8 @@
 			}
 		}
 	});
+
+	alert(typeof(browser));
+	alert(typeof(browser.app));
+	alert(typeof(window.qb));
 })();
