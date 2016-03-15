@@ -28,9 +28,9 @@
     <button class="btn" id="J_btn_01">使用window.location.href=window.location.href刷新页面</button>
     <button class="btn" id="J_btn_02">使用window.location.reload();刷新页面</button>
     <button class="btn" id="J_btn_03">使用window.location.reload(true);刷新页面</button>
-    <p style="color: red; font-size: .2rem;">注意：只要点击下方任意一个按钮，url就会变化，此时如果需要测试上述按钮，请重新访问</p>
-	<button class="btn" id="J_btn_04">使用window.location.href=window.location.href?r=Math.random(n)</button>
-	<button class="btn" id="J_btn_05">使用window.location.replace(location.href + "?v=" + Math.random()); </button>
+    <p style="color: red; font-size: .2rem;">注意：只要点击下方任意一个按钮，url就会变化，此时如果需要测试上述按钮，请扫描二维码进入最原始的页面</p>
+	<button class="btn" id="J_btn_04">使用window.location.href = window.location.href + "?r=" + Math.random();刷新页面</button>
+	<button class="btn" id="J_btn_05">使用window.location.replace(location.href + "?v=" + Math.random()); 刷新页面</button>
 
 	<script src="js/jquery.js"></script>
 	<script>
@@ -50,8 +50,7 @@
 			window.location.reload(true);
 		});
 		$("#J_btn_04").on("click", function() {
-			var r = Math.random()*10 + 1;
-			window.location.href = window.location.href + "?r=" + r;
+			window.location.href = window.location.href + "?r=" + Math.random();
 		});
 		$("#J_btn_05").on("click", function() {
 			window.location.replace(location.href + "?v=" + Math.random());
