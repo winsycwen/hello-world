@@ -26,9 +26,11 @@
 		请输入内容：<input type="text" name="content">
 	</div>
     <button class="btn" id="J_btn_01">使用window.location.href=window.location.href刷新页面</button>
-    <button class="btn" id="J_btn_02">使用window.reload();刷新页面</button>
-    <button class="btn" id="J_btn_03">使用window.reload(true);刷新页面</button>
+    <button class="btn" id="J_btn_02">使用window.location.reload();刷新页面</button>
+    <button class="btn" id="J_btn_03">使用window.location.reload(true);刷新页面</button>
 	<button class="btn" id="J_btn_04">使用window.location.href=window.location.href?r=Math.random(n)</button>
+	<button class="btn" id="J_btn_05">使用window.location.replace(location.href + "?v=" + Math.random()); </button>
+
 	<script src="js/jquery.js"></script>
 	<script>
 	;(function(){
@@ -49,6 +51,9 @@
 		$("#J_btn_04").on("click", function() {
 			var r = Math.random()*10 + 1;
 			window.location.href = window.location.href + "?r=" + r;
+		});
+		$("#J_btn_05").on("click", function() {
+			window.location.replace(location.href + "?v=" + Math.random());
 		});
 	});
 	</script>
