@@ -3,11 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>测试微信内部使用js刷新页面</title>
-	<link rel="stylesheet" href="index.css">
 </head>
 <body>
 	请输入内容：<input type="text" name="content">
-    <button id="J_btn_01">使用window.loaction.href刷新页面</button>
+    <button id="J_btn_01">使用window.location.href刷新页面</button>
     <button id="J_btn_02">使用window.reload();刷新页面</button>
     <button id="J_btn_03">使用window.reload(true);刷新页面</button>
 
@@ -15,7 +14,7 @@
 	<script>
 	$(function() {
 		$("#J_btn_01").on("click", function() {
-			window.loaction.href = window.loaction.href;
+			window.location.href = window.location.href;
 		});
 		$("#J_btn_02").on("click", function() {
 			window.reload();
