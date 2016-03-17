@@ -18,7 +18,7 @@
 		</ul>
 	</div>
 	<div id="app4">
-		<input v-model="newTodo" v-on:keyup.enter="addTodo">
+		<input v-model="newTodo" v-on:keyup.enter="addTodo" onclick="">
 		<ul>
 			<li v-for="todo in todos">
 				<span>{{ todo.text }}</span>
@@ -26,6 +26,11 @@
 			</li>
 		</ul>
 	</div>
+	<div id="app5">
+		<span>Message: {{ msg }}</span>
+		<span>This will nerver change: {{*msg }}</span>
+	</div>
+	<div id="app6">{{ fullName }} </div>
 	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.min.js"></script> -->
 	<script src="http://cdn.jsdelivr.net/vue/1.0.17/vue.min.js"></script>
 	<script>
@@ -72,6 +77,34 @@
 			}
 		}
 	});
+	new Vue({
+		data: {
+			a: 1
+		},
+		created: function() {
+			console.log("a is: " + this.a);
+		}
+	});
+	new Vue({
+		el: "#app5",
+		data: {
+			msg: "what"
+		}
+	});
+	var vm  = new Vue({
+		data: {
+			firstName: "Foo",
+			lastName: "Bar",
+			fullName: "Foo Bar"
+		}
+	});
+	vm.$watch("firstName", function(val) {
+		this.fullName = val + " " + this.lastName;
+	});
+	vm.$watch("lastName", function(val) {
+		this.fullName = this.firstName + " " + val
+	});
+	// 生命周期： created、beforeCompile、compiled、ready、beforeDestroy、destroyed
 	</script>
 </body>
 </html>
