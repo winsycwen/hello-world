@@ -5,6 +5,12 @@
 	<title>vue.js测试</title>
 </head>
 <body>
+	<h1 v-if="ok">Hello!</h1>
+	<template v-if="ok">
+		<h1>Title</h1>
+		<p>Paragragh 1</p>
+		<p>Paragragh 2</p>
+	</template>
 	<div id="app1">{{ message }}</div>
 	<div id="app2">
 		<p>{{ message }}</p>
@@ -30,7 +36,7 @@
 		<span>Message: {{ msg }}</span>
 		<span>This will nerver change: {{*msg }}</span>
 	</div>
-	<div id="app6">{{ fullName }} </div>
+	<div id="app6">item-{{id}}</div>
 	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.min.js"></script> -->
 	<script src="http://cdn.jsdelivr.net/vue/1.0.17/vue.min.js"></script>
 	<script>
