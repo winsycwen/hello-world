@@ -37,7 +37,6 @@ var a = {
 // var a = [1, 2, 3];
 var b = util.deepCloneObj(a);
 console.log(a, b);
-alert(a);
 // 使用此方法，如果对象中存在函数，会丢失函数
 var c = JSON.stringify(a);
 console.log(a, JSON.parse(c));
