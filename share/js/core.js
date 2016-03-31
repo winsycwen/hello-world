@@ -105,6 +105,9 @@ detect.call(_KHFWAP, navigator.userAgent, navigator.platform);
 _KHFWAP.domReady(getMessage);
 
 function getMessage() {
+
+    document.getElementById("ua").innerHTML = "UserAgent：" + navigator.userAgent + "; Platform: " + navigator.platform;
+
     var str = "";
     for(var osObj in _KHFWAP.os) {
         str += (osObj + ": " + _KHFWAP.os[osObj] + ";");
