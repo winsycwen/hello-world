@@ -144,7 +144,7 @@ function getMessage() {
  * Create Time: 2015-06-16 19:52
  * Author Link: http://blog.wangjunfeng.com
  */
-var nativeShare = function (elementNode, config) {
+function nativeShare (elementNode, config) {
     if (!document.getElementById(elementNode)) {
         return false;
     }
