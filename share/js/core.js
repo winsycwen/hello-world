@@ -116,7 +116,7 @@ _KHFWAP.domReady(function() {
         from:'王俊锋的博客' // 来源
     };
     share_obj = new nativeShare('nativeShare',config);
-    document.getElementById("isWeixin").innerHTML = share_obj.isWeixin ? "是": "否";
+    document.getElementById("isWeixin").innerHTML = share_obj.is_weixin() ? "是": "否";
 });
 
 // 获取浏览器UA信息
@@ -144,7 +144,12 @@ function getMessage() {
  * Create Time: 2015-06-16 19:52
  * Author Link: http://blog.wangjunfeng.com
  */
-function nativeShare (elementNode, config) {
+/**
+ * Created by Jeffery Wang.
+ * Create Time: 2015-06-16 19:52
+ * Author Link: http://blog.wangjunfeng.com
+ */
+var nativeShare = function (elementNode, config) {
     if (!document.getElementById(elementNode)) {
         return false;
     }
@@ -164,10 +169,9 @@ function nativeShare (elementNode, config) {
         uc: "",
         qq: ""
     };
-    // var isWeixin = false;
+    var isWeixin = false;
 
     config = config || {};
-    this.isWeixin = false;
     this.elementNode = elementNode;
     this.url = config.url || document.location.href || '';
     this.title = config.title || document.title || '';
@@ -202,7 +206,8 @@ function nativeShare (elementNode, config) {
                 }
             }
         } else {
-            if (isqqBrowser) {
+            // if (isqqBrowser && !isWeixin) {
+            if(isqqBrowser) {
                 to_app = to_app == '' ? '' : this.ucAppList[to_app][2];
                 var ah = {
                     url: url,
@@ -279,9 +284,7 @@ function nativeShare (elementNode, config) {
         platform_os = this.getPlantform();
         version.qq = isqqBrowser ? this.getVersion(UA.split("MQQBrowser/")[1]) : 0;
         version.uc = isucBrowser ? this.getVersion(UA.split("UCBrowser/")[1]) : 0;
-        this.isWeixin = this.is_weixin();
-        // console.log(this.isWeixin);
-        // alert("test");
+        isWeixin = this.is_weixin();
         /*if ((isqqBrowser && version.qq < 5.4 && platform_os == "iPhone") || (isqqBrowser && version.qq < 5.3 && platform_os == "Android")) {
             isqqBrowser = bLevel.qq.forbid
         } else {
@@ -294,10 +297,9 @@ function nativeShare (elementNode, config) {
             }
         }*/
         this.isloadqqApi();
-        this.html();
-        /*if (isqqBrowser || isucBrowser) {
+        if (isqqBrowser || isucBrowser) {
             this.html();
-        } else {
+        } /*else {
             document.write('目前该分享插件仅支持手机UC浏览器和QQ浏览器');
         }*/
     };
