@@ -14,7 +14,7 @@ $signPackage = $jssdk->GetSignPackage();
 <body>
   
 </body>
-    <h1>测试分享</h1>
+    <!-- <h1>测试分享</h1>
     <section class="container">
         <h1 id="title">AAAAA</h1>
         <p id="content">( •̀ ω •́ )y大王叫我来巡山啊~~~~~~~~~</p>
@@ -36,7 +36,12 @@ $signPackage = $jssdk->GetSignPackage();
                 <i class="share-wb"></i>
             </a>
         </li>
-    </ul>
+    </ul> -->
+    <h1 id="J_shareTitle">我的金海马商城小店，分享购买可获返利哦~</h1>
+    <p id="J_shareDesc">我的金海马商城小店（霜霜的小店），分享购买可获返利哦~家居百货买起来！</p>
+    <img id="J_shareImg" src="http://winsycwen.github.io/hello-world/share/images/test.jpg" alt="金海马商城-返利商城">
+    <button id="J_shareBtn">分享好友，坐享返利</button>
+
     <!-- <button id="hideQQMenuItem">隐藏分享到QQ好友的菜单选项</button>
     <button id="showQQMenuItem">显示分享到QQ好友的菜单选项</button>
     <button id="hideQzoneMenuItem">隐藏分享到QQ空间的菜单选项</button>

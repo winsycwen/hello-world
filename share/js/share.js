@@ -1,317 +1,264 @@
-/**
- *  ----------------------------------------------------
- *      WAP分享功能（QQ/QQ空间/微博/微信好友/微信朋友圈）
- *      
- *      author: yansiwen
- *      date: 2016-04-05
- *  ----------------------------------------------------
- */
-
-_KHFWAP.domReady(initShare);
-
-function initShare() {
-
-    var bLevel = {
-        qq: {forbid: 0, lower: 1, higher: 2},
-        uc: {forbid: 0, allow: 1}
-    };
-    var isqqBrowser, isucBrowser;
-
-    if(_KHFWAP.os.phone || _KHFWAP.tablet) {
-        // 手机或平板下
-        if(_KHFWAP.browser.isWeixin) {
-            // 微信浏览器内打开，使用js-sdk
-            shareBySDK();
+/** 
+     *  自定义分享内容
+     *  
+     *  @author: yansiwen
+     *  @date  : 2016-04-06
+     */
+    function CustomShare(config, weixinConfig) {
+        if(typeof config !== "object") {
+            // console.log("第一个配置项不为对象类型");
             return;
         }
+        this.triggerBtn = $(config.triggerBtn); // 触发显示自定义分享面板的按钮
 
-        if(_KHFWAP.browser.isQQ || _KHFWAP.browser.isUC) {
-            // QQ/UC浏览器内打开，使用native-share
-            shareByNativeShare();
-            return;
+        this.config = config || {};
+        this.appList = config.appList || ["wechat", "moments", "qq", "qzone", "weibo"]; // 默认分享平台 
+        this.appListTitle = {
+            "wechat": "分享给微信好友",
+            "moments": "分享到微信朋友圈",
+            "qq": "分享给QQ好友",
+            "qzone": "分享到QQ空间",
+            "weibo": "分享到新浪微博"
+        };
+        // 微信JS-SDK配置参数 
+        if(!!weixinConfig && typeof weixinConfig === "object") {
+            this.appId = weixinConfig.appId;
+            this.timestamp = weixinConfig.timestamp;
+            this.nonceStr = weixinConfig.nonceStr;
+            this.signature = weixinConfig.signature;
         }
-
-        // 其它浏览器打开
-        shareByLink();
+        // 获取浏览器信息
+        this.getPlatform();
+        // 根据浏览器类型渲染不同的HTML模板
+        this.init();
+        // 根据浏览器类型为分享按钮绑定不同的事件
+        this.bindEvent();
     }
-}
 
-/**
- * @description: 在微信浏览器内，使用JS-SDK自定义分享内容
- * @return    void
- */
-function shareBySDK() {
-    wx.config({
-        debug: true,
-        appId: weixinConfig.appId,
-        timestamp: weixinConfig.timestamp,
-        nonceStr: weixinConfig.nonceStr,
-        signature: weixinConfig.signature,
-        jsApiList: [
-          // 所有要调用的 API 都要加到这个列表中
-            'onMenuShareTimeline',
-            'onMenuShareAppMessage',
-            'onMenuShareQQ',
-            'onMenuShareWeibo',
-            'onMenuShareQZone',
-            'hideMenuItems',
-            'showMenuItems'
-        ]
-    });
-    wx.ready(function () {
-        var shareTitle = $("#title").text(),
-            shareContent = $("#content").text(),
-            sharePicLink = $(".container img").attr("src");
+    CustomShare.prototype = {
+        constructor: CustomShare,
+        /**
+         *  获取浏览器信息：判断是否在手机端的微信/QQ/UC浏览器中打开页面
+         *  Notice: 必须先检测UA是否为微信浏览器，因为在一些手机上微信的UA除了显示为micromessenger还会有MQQBrowser。
+         *  @param  void    
+         *  @return void
+         */
+        getPlatform: function() {
+            var self = this;
+            self.phone = false;
+            self.browser = {
+                isWeixin: false,
+                isQQBrowser: false,
+                qqVersion: "higher",
+                isUCBrowser: false
+            };
+            var version = self.getVersion(_KHFWAP.browser.version);
+            if(_KHFWAP.os.phone) {
+                // 手机端
+                self.phone = true;
+                if(_KHFWAP.browser.weixin) {
+                    // 微信内置浏览器
+                    self.browser.isWeixin = true;
+                    return;
+                } 
+                if(_KHFWAP.browser.qqbrowser) {
+                    // QQ浏览器
+                    if(!( (_KHWAP.os.android && version < 5.3) || (_KHFWAP.os.iphone && version < 5.4) )) {
+                        self.browser.isQQBrowser = true;
+                        if(_KHWAP.os.android && version < 5.4) {
+                            self.browser.qqVersion = "lower";
+                        }
+                    } 
+                    return;
+                }
+                if(_KHFWAP.browser.ucbrowser) {
+                    // UC浏览器
+                    if(!( (_KHFWAP.os.android && version < 9.7) || (_KHFWAP.os.iphone && version < 10.2) )) {
+                        self.browser.isUCBrowser = true;
+                    }
+                    return;
+                }
+            } 
+        },
+        /**
+         *  获取浏览器的版本号
+         *  @param  {[object]}  变量名 变量描述
+         *  @return void
+         */
+        getVersion: function(version) {
+            var arr = version.split(".");
+            return parseFloat(arr[0] + "." + arr[1]);
+        },
+        /**
+         *  根据浏览器类型渲染不同的HTML模板
+         *  @param  void
+         *  @return void
+         */
+        init: function() {
+            var self = this;
+            if(self.browser.isWeixin && self.phone) {
+                // 如果是在微信中打开，显示提示层，不显示分享按钮
+                self.renderTipsHTML();
+                return;
+            }
+            self.renderShareHTML();
+        },
+        /**
+         *  在手机端的微信浏览器内，渲染点击"分享"按钮后的用户提示蒙层
+         *  @param  void
+         *  @return void
+         */
+        renderTipsHTML: function() {
+            var self = this,
+                html = '';
+            self.box = $("<div>").addClass("custom-share-layer").html("请点击右上角|分享");
+            self.box.on("click", function() {
+                        self.box.hide();
+                    })
+                    .appendTo($("body"))
+                    .hide();
+        },
+        /**
+         *  在PC端、手机端的QQ、UC和其它浏览器（不包括微信浏览器）下，渲染分享部分的HTML
+         *  @param  void
+         *  @return void
+         */
+        renderShareHTML: function() {
+            var self = this,
+                html = '',
+                appList = self.appList,
+                len = self.appList.length;
 
-        // 分享内容
-        var shareConfig = {
-            link: location.href,
-            title: shareTitle,
-            desc: shareContent,
-            imgUrl: sharePicLink,
+            self.box = $("<ul>").attr({"id": "#J_customShare", "class": "custom-share-list"});
+            for(var i = 0; i < len; i++) {
+                // 手机端中除了QQ、UC、微信浏览器外的其它浏览器中，只显示QQ、QQ空间、微博图标
+                if(!self.browser.isQQBrowser && !self.browser.isUCBrowser && (appList[i] === "wechat" || appList[i] === "moments")) {
+                    continue;
+                }
+                html += '<li class="'+ appList[i] +' share-item">' +
+                            '<a class="'+ appList[i] +'" href="javascript:;" target="_blank" title="'+ self.appListTitle[appList[i]] +'">' +
+                                self.appListTitle[appList[i]] +
+                            '</a>' +
+                        '</li>';
+            }
+            self.box.html(html).appendTo($("body")).hide();
+        },
+        /**
+         *  根据浏览器类型为分享按钮绑定不同的事件
+         *  例如：微信浏览器内，点击按钮只显示提示蒙层；在UC/QQ浏览器中，会调用
+         *  @param  void
+         *  @return void
+         */
+        bindEvent: function() {
+            var self = this;
+            self.triggerBtn.on("click", function() {
+                self.box.toggle();
+                if(self.browser.isWeixin) {
+                    // 在微信中打开，显示提示层，不显示分享按钮
+                    self.shareBySDK();
+                } else if(self.browser.isUCBrowser || self.browser.isQQBrowser) {
+                    self.shareByNative();
+                } else {
+                    self.shareByLink();
+                }
+            });
+        },
+        /**
+         *  在手机微信浏览器内，使用JS-SDK自定义分享内容
+         *  微信JS-SDK文档：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+         *  @param     void
+         *  @return    void
+         */
+        shareBySDK: function() {
+            var self = this;
+            wx.config({
+                debug: true,
+                appId: self.appId,
+                timestamp: self.timestamp,
+                nonceStr: self.nonceStr,
+                signature: self.signature,
+                jsApiList: [
+                    // 所有要调用的 API 都要加到这个列表中
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareQZone'
+                ]
+            });
+            wx.ready(function () {
+                wx.onMenuShareAppMessage(self.config);  // 分享给微信好友
+                wx.onMenuShareTimeline(self.config);    // 分享到微信朋友圈（没有分享描述）
+                wx.onMenuShareQQ(self.config);          // 分享给QQ好友
+                wx.onMenuShareQZone(self.config);       // 分享到QQ空间
+            });
+        },
+        /**
+         *  在PC端，手机端的非QQ、UC、微信浏览器内，使用各社交媒体的分享链接实现QQ好友、QQ空间以及新浪微博的分享功能
+         *  @param    {[object]}    变量名    变量描述
+         *  @return    void
+         */
+        shareByLink: function() {
+            var self = this;
+            var shareConfig = {
+                url: self.config.link,
+                title: self.config.title,
+                summary: self.config.desc,
+                pics: self.config.imgUrl
+            };
+            var s = [];
+            for(var i in shareConfig) {
+                s.push(i + "=" + encodeURIComponent(shareConfig[i] || ""));
+            }
+            this.box.on("click", function(event) {
+                var flag;
+                var target = event.target;
+                if(target.tagName.toLowerCase() === "a") {
+                    flag = target.className;
+                    switch(flag) {
+                        case "qq": 
+                            window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join("&"));
+                            break;
+                        case "qzone":
+                            window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
+                            break;
+                        case "weibo":
+                            // window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
+                            window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pics));
+                            break;
+                        default: break;
+                    }
+                }
+            });
+        },
+        /**
+         *  在手机UC、QQ浏览器内，利用以上浏览器的原生分享接口调用浏览器原生分享功能
+         *  @param  {[object]}  变量名 变量描述
+         *  @return void
+         */
+        shareByNative: function() {
+
+        }
+    };
+
+    $(function() {
+        // 调用分享，自定义分享内容
+        var pageShare = new CustomShare({
+            triggerBtn: "#J_shareBtn",
+            link: location.href, 
+            title: $("#J_shareTitle").text(),
+            desc: $("#J_shareDesc").text(),
+            imgUrl: $("#J_shareImg").attr("src"),
+            appList: ["wechat", "moments", "qq", "qzone", "weibo"],
+            trigger: function() {
+
+            },
             success: function(res) {
+                // 针对微信：分享成功后执行的回调函数
                 alert(JSON.stringify(res));
             },
             cancel: function(res) {
+                // 针对微信：取消分享后执行的回调函数
                 alert(JSON.stringify(res));
             }
-        };
-        // 分享给微信好友
-        wx.onMenuShareAppMessage(shareConfig); 
-        // 分享到微信朋友圈（没有分享描述）
-        wx.onMenuShareTimeline(shareConfig);
-        // 分享给QQ好友
-        wx.onMenuShareQQ(shareConfig);
-        // 分享到QQ空间
-        wx.onMenuShareQZone(shareConfig);
+        }, typeof weixinConfig !== "undefined" && weixinConfig);
     });
-}
-
-/**
- * @description: QQ/UC浏览器内打开，使用native-share
- * @return    void
- */
-function shareByNativeShare() {
-    var config = {
-        url: 'http://blog.wangjunfeng.com',// 分享的网页链接
-        title: '王俊锋的个人博客',// 标题
-        desc: '王俊锋的个人博客',// 描述
-        img: 'http://www.wangjunfeng.com/img/face.jpg',// 图片
-        img_title: '王俊锋的个人博客',// 图片标题
-        from: '王俊锋的博客' // 来源
-    };
-    var share_obj = new nativeShare('nativeShare', config);
-
-    /**
-     * Created by Jeffery Wang.
-     * Create Time: 2015-06-16 19:52
-     * Author Link: http://blog.wangjunfeng.com
-     */
-    var nativeShare = function (elementNode, config) {
-        if (!document.getElementById(elementNode)) {
-            return false;
-        }
-
-        var qApiSrc = {
-            lower: "http://3gimg.qq.com/html5/js/qb.js",
-            higher: "http://jsapi.qq.com/get?api=app.share"
-        };
-        var bLevel = {
-            qq: {forbid: 0, lower: 1, higher: 2},
-            uc: {forbid: 0, allow: 1}
-        };
-        var UA = navigator.appVersion;
-        var isqqBrowser = (UA.split("MQQBrowser/").length > 1) ? bLevel.qq.higher : bLevel.qq.forbid;
-        var isucBrowser = (UA.split("UCBrowser/").length > 1) ? bLevel.uc.allow : bLevel.uc.forbid;
-        var version = {
-            uc: "",
-            qq: ""
-        };
-        var isWeixin = false;
-
-        config = config || {};
-        this.elementNode = elementNode;
-        this.url = config.url || document.location.href || '';
-        this.title = config.title || document.title || '';
-        this.desc = config.desc || document.title || '';
-        this.img = config.img || document.getElementsByTagName('img').length > 0 && document.getElementsByTagName('img')[0].src || '';
-        this.img_title = config.img_title || document.title || '';
-        this.from = config.from || window.location.host || '';
-        this.ucAppList = {
-            sinaWeibo: ['kSinaWeibo', 'SinaWeibo', 11, '新浪微博'],
-            weixin: ['kWeixin', 'WechatFriends', 1, '微信好友'],
-            weixinFriend: ['kWeixinFriend', 'WechatTimeline', '8', '微信朋友圈'],
-            QQ: ['kQQ', 'QQ', '4', 'QQ好友'],
-            QZone: ['kQZone', 'QZone', '3', 'QQ空间']
-        };
-
-        this.share = function (to_app) {
-            var title = this.title, url = this.url, desc = this.desc, img = this.img, img_title = this.img_title, from = this.from;
-            if (isucBrowser) {
-                to_app = to_app == '' ? '' : (platform_os == 'iPhone' ? this.ucAppList[to_app][0] : this.ucAppList[to_app][1]);
-                if (to_app == 'QZone') {
-                    B = "mqqapi://share/to_qzone?src_type=web&version=1&file_type=news&req_type=1&image_url="+img+"&title="+title+"&description="+desc+"&url="+url+"&app_name="+from;
-                    k = document.createElement("div"), k.style.visibility = "hidden", k.innerHTML = '<iframe src="' + B + '" scrolling="no" width="1" height="1"></iframe>', document.body.appendChild(k), setTimeout(function () {
-                        k && k.parentNode && k.parentNode.removeChild(k)
-                    }, 5E3);
-                }
-                if (typeof(ucweb) != "undefined") {
-                    ucweb.startRequest("shell.page_share", [title, title, url, to_app, "", "@" + from, ""])
-                } else {
-                    if (typeof(ucbrowser) != "undefined") {
-                        ucbrowser.web_share(title, title, url, to_app, "", "@" + from, '')
-                    } else {
-                    }
-                }
-            } else {
-                // if (isqqBrowser && !isWeixin) {
-                if(isqqBrowser) {
-                    to_app = to_app == '' ? '' : this.ucAppList[to_app][2];
-                    var ah = {
-                        url: url,
-                        title: title,
-                        description: desc,
-                        img_url: img,
-                        img_title: img_title,
-                        to_app: to_app,//微信好友1,腾讯微博2,QQ空间3,QQ好友4,生成二维码7,微信朋友圈8,啾啾分享9,复制网址10,分享到微博11,创意分享13
-                        cus_txt: "请输入此时此刻想要分享的内容"
-                    };
-                    ah = to_app == '' ? '' : ah;
-                    if (typeof(browser) != "undefined") {
-                        if (typeof(browser.app) != "undefined" && isqqBrowser == bLevel.qq.higher) {
-                            browser.app.share(ah)
-                        }
-                    } else {
-                        if (typeof(window.qb) != "undefined" && isqqBrowser == bLevel.qq.lower) {
-                            window.qb.share(ah)
-                        } else {
-                        }
-                    }
-                } else {
-                }
-            }
-        };
-
-        this.html = function() {
-            var position = document.getElementById(this.elementNode);
-            var html = '<div class="label">分享到</div>'+
-                '<div class="list clearfix">'+
-                '<span data-app="sinaWeibo" class="nativeShare weibo"><i></i>新浪微博</span>'+
-                '<span data-app="weixin" class="nativeShare weixin"><i></i>微信好友</span>'+
-                '<span data-app="weixinFriend" class="nativeShare weixin_timeline"><i></i>微信朋友圈</span>'+
-                '<span data-app="QQ" class="nativeShare qq"><i></i>QQ好友</span>'+
-                '<span data-app="QZone" class="nativeShare qzone"><i></i>QQ空间</span>'+
-                '<span data-app="" class="nativeShare more"><i></i>更多</span>'+
-                '</div>';
-            position.innerHTML = html;
-        };
-
-        this.isloadqqApi = function () {
-            if (isqqBrowser) {
-                var b = (version.qq < 5.4) ? qApiSrc.lower : qApiSrc.higher;
-                var d = document.createElement("script");
-                var a = document.getElementsByTagName("body")[0];
-                d.setAttribute("src", b);
-                a.appendChild(d)
-            }
-        };
-
-        this.getPlantform = function () {
-            ua = navigator.userAgent;
-            if ((ua.indexOf("iPhone") > -1 || ua.indexOf("iPod") > -1)) {
-                return "iPhone"
-            }
-            return "Android"
-        };
-
-        this.is_weixin = function () {
-            var a = UA.toLowerCase();
-            if (a.match(/MicroMessenger/i) == "micromessenger") {
-                return true
-            } else {
-                return false
-            }
-        };
-
-        this.getVersion = function (c) {
-            var a = c.split("."), b = parseFloat(a[0] + "." + a[1]);
-            return b
-        };
-
-        this.init = function () {
-            platform_os = this.getPlantform();
-            version.qq = isqqBrowser ? this.getVersion(UA.split("MQQBrowser/")[1]) : 0;
-            version.uc = isucBrowser ? this.getVersion(UA.split("UCBrowser/")[1]) : 0;
-            isWeixin = this.is_weixin();
-            /*if ((isqqBrowser && version.qq < 5.4 && platform_os == "iPhone") || (isqqBrowser && version.qq < 5.3 && platform_os == "Android")) {
-                isqqBrowser = bLevel.qq.forbid
-            } else {
-                if (isqqBrowser && version.qq < 5.4 && platform_os == "Android") {
-                    isqqBrowser = bLevel.qq.lower
-                } else {
-                    if (isucBrowser && ((version.uc < 10.2 && platform_os == "iPhone") || (version.uc < 9.7 && platform_os == "Android"))) {
-                        isucBrowser = bLevel.uc.forbid
-                    }
-                }
-            }*/
-            this.isloadqqApi();
-            if (isqqBrowser || isucBrowser) {
-                this.html();
-            } /*else {
-                document.write('目前该分享插件仅支持手机UC浏览器和QQ浏览器');
-            }*/
-        };
-
-        this.init();
-
-        var share = this;
-        var items = document.getElementsByClassName('nativeShare');
-        for (var i=0;i<items.length;i++) {
-            items[i].onclick = function(){
-                share.share(this.getAttribute('data-app'));
-            }
-        }
-
-        return this;
-    };
-}
-
-/**
- * @description: 使用各平台开放的分享接口链接，自定义拼接分享内容
- * @return    void
- */
-function shareByLink() {
-    var shareTitle = $("#title").text(),
-        shareContent = $("#content").text(),
-        sharePicLink = $(".container img").attr("src");
-    var shareConfig = {
-        url: location.href,
-        title: shareTitle,
-        summary: shareContent,
-        pics: sharePicLink
-    };
-    var s = [];
-    for(var i in shareConfig) {
-        s.push(i + "=" + encodeURIComponent(shareConfig[i] || ""));
-    }
-    $("#J_share").on("click", function(event) {
-        var flag;
-        var target = event.target;
-        if(target.tagName.toLowerCase() === "i") {
-            flag = target.className && target.className.split("-")[1];
-            switch(flag) {
-                case "qq": 
-                    window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join("&"));
-                    break;
-                case "qzone":
-                    window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
-                    break;
-                case "wb":
-                    // window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
-                    window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pics));
-                    break;
-                default: break;
-            }
-        }
-    });
-}

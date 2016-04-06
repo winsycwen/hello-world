@@ -74,24 +74,31 @@ function detect(ua, platform) {
     }
     if (webview) browser.webview = true;
 
-    if (weixin) {
-        browser.isWeixin = true; 
-        browser.weixinVersion = weixin[1];
-    }
-    if (ucbrowser) {
-        browser.isUC = true; 
-        browser.ucVersion = ucbrowser[1];
-    }
-    if (qqbrowser) {
-        browser.isQQ = true; 
-        browser.qqVersion = qqbrowser[1];
-    }
-
     os.tablet = !!(ipad || playbook || (android && !ua.match(/Mobile/)) ||
         (firefox && ua.match(/Tablet/)) || (ie && !ua.match(/Phone/) && ua.match(/Touch/)))
     os.phone = !!(!os.tablet && !os.ipod && (android || iphone || webos || blackberry || bb10 ||
         (chrome && ua.match(/Android/)) || (chrome && ua.match(/CriOS\/([\d.]+)/)) ||
         (firefox && ua.match(/Mobile/)) || (ie && ua.match(/Touch/))))
+
+    if(os.phone) {
+        // 如果是手机端的浏览器
+        if (weixin) {
+            // 微信
+            browser.weixin = true; 
+            browser.version = weixin[1];
+            return;
+        }
+        if (ucbrowser) {
+            // UC浏览器
+            browser.ucbrowser = true; 
+            browser.version = ucbrowser[1];
+        }
+        if (qqbrowser) {
+            // QQ浏览器
+            browser.qqbrowser = true; 
+            browser.version = qqbrowser[1];
+        }
+    }
 }
 // 应用浏览器检测
 detect.call(_KHFWAP, navigator.userAgent, navigator.platform);
