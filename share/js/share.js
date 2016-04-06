@@ -1,4 +1,4 @@
-/** 
+    /** 
      *  自定义分享内容
      *  
      *  @author: yansiwen
@@ -63,18 +63,25 @@
                 } 
                 if(_KHFWAP.browser.qqbrowser) {
                     // QQ浏览器
-                    alert(!( (_KHWAP.os.android && version < 5.3) || (_KHFWAP.os.iphone && version < 5.4) ));
-                    if(!( (_KHWAP.os.android && version < 5.3) || (_KHFWAP.os.iphone && version < 5.4) )) {
-                        self.browser.isQQBrowser = true;
-                        if(_KHWAP.os.android && version < 5.4) {
-                            self.browser.qqVersion = "lower";
+                    if(_KHFWAP.os.android) {
+                        if(version >= 5.3) {
+                            self.browser.isQQBrowser = true;
+                            if(version < 5.4) {
+                                self.browser.qqVersion = "lower";
+                            }
                         }
-                    } 
+                    }
+                    if(_KHWAP.os.iphone && version >= 5.4) {
+                        self.browser.isQQBrowser = true;
+                    }
                     return;
                 }
                 if(_KHFWAP.browser.ucbrowser) {
                     // UC浏览器
-                    if(!( (_KHFWAP.os.android && version < 9.7) || (_KHFWAP.os.iphone && version < 10.2) )) {
+                    if(_KHFWAP.os.android && version >= 9.7) {
+                        self.browser.isUCBrowser = true;
+                    }
+                    if(_KHFWAP.os.iphone && version >= 10.2) {
                         self.browser.isUCBrowser = true;
                     }
                     return;
