@@ -63,6 +63,7 @@
                 } 
                 if(_KHFWAP.browser.qqbrowser) {
                     // QQ浏览器
+                    alert(!( (_KHWAP.os.android && version < 5.3) || (_KHFWAP.os.iphone && version < 5.4) ));
                     if(!( (_KHWAP.os.android && version < 5.3) || (_KHFWAP.os.iphone && version < 5.4) )) {
                         self.browser.isQQBrowser = true;
                         if(_KHWAP.os.android && version < 5.4) {
@@ -87,6 +88,7 @@
          */
         getVersion: function(version) {
             var arr = version.split(".");
+            alert("getVersion");
             return parseFloat(arr[0] + "." + arr[1]);
         },
         /**
@@ -124,6 +126,7 @@
          *  @return void
          */
         renderShareHTML: function() {
+            alert("renderShareHTML");
             var self = this,
                 html = '',
                 appList = self.appList,
@@ -152,11 +155,13 @@
         bindEvent: function() {
             var self = this;
             self.triggerBtn.on("click", function() {
+                alert("test");
                 self.box.toggle();
                 if(self.browser.isWeixin) {
                     // 在微信中打开，显示提示层，不显示分享按钮
                     self.shareBySDK();
                 } else if(self.browser.isUCBrowser || self.browser.isQQBrowser) {
+                    alert("UC/QQ Browser");
                     self.shareByNative();
                 } else {
                     self.shareByLink();
