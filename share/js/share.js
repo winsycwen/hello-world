@@ -63,7 +63,7 @@ CustomShare.prototype = {
             } 
             if(typeof _KHFWAP.browser.qqbrowser != "undefined") {
                 // QQ浏览器
-                alert(typeof _KHFWAP.os.android != "undefined");
+                alert("typeof _KHFWAP.os.android: " + typeof _KHFWAP.os.android != "undefined");
                 if(typeof _KHFWAP.os.android != "undefined") {
                     if(version >= 5.3) {
                         self.browser.isQQBrowser = true;
@@ -78,6 +78,7 @@ CustomShare.prototype = {
                 alert(self.browser.isQQBrowser);
                 return;
             }
+            alert("typeof _KHFWAP.browser.ucbrowser: " +typeof _KHFWAP.browser.ucbrowser != "undefined")
             if(typeof _KHFWAP.browser.ucbrowser != "undefined") {
                 // UC浏览器
                 if(typeof _KHFWAP.os.android != "undefined" && version >= 9.7) {
@@ -141,6 +142,7 @@ CustomShare.prototype = {
 
         self.box = $("<ul>").attr({"id": "#J_customShare", "class": "custom-share-list"});
         alert(!self.browser.isQQBrowser && !self.browser.isUCBrowser);
+
         for(var i = 0; i < len; i++) {
             // 手机端中除了QQ、UC、微信浏览器外的其它浏览器中，只显示QQ、QQ空间、微博图标
             if(!self.browser.isQQBrowser && !self.browser.isUCBrowser && (appList[i] === "wechat" || appList[i] === "moments")) {
