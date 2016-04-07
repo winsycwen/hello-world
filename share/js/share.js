@@ -61,9 +61,9 @@ CustomShare.prototype = {
                 self.browser.isWeixin = true;
                 return;
             } 
+            alert(typeof _KHFWAP.browser.qqbrowser != "undefined");
             if(typeof _KHFWAP.browser.qqbrowser != "undefined") {
                 // QQ浏览器
-                alert("QQbrowser");
                 if(_KHFWAP.os.android) {
                     if(version >= 5.3) {
                         self.browser.isQQBrowser = true;
