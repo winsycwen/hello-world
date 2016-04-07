@@ -71,7 +71,9 @@ CustomShare.prototype = {
                         }
                     }
                 }
+                alert("qqbrowser");
                 if(_KHWAP.os.iphone && version >= 5.4) {
+                    alert("iphone");
                     self.browser.isQQBrowser = true;
                 }
                 return;
@@ -165,7 +167,6 @@ CustomShare.prototype = {
                 // 在微信中打开，显示提示层，不显示分享按钮
                 self.shareBySDK();
             } else if(self.browser.isUCBrowser || self.browser.isQQBrowser) {
-                alert("ucbrowser/qqbrowser");
                 self.shareByNative();
             } else {
                 self.shareByLink();
