@@ -61,7 +61,6 @@ CustomShare.prototype = {
                 self.browser.isWeixin = true;
                 return;
             } 
-            alert(typeof _KHFWAP.browser.qqbrowser != "undefined");
             if(typeof _KHFWAP.browser.qqbrowser != "undefined") {
                 // QQ浏览器
                 if(typeof _KHFWAP.os.android != "undefined") {
@@ -75,6 +74,7 @@ CustomShare.prototype = {
                 if(typeof _KHWAP.os.iphone != "undefined" && version >= 5.4) {
                     self.browser.isQQBrowser = true;
                 }
+                alert(self.browser.isQQBrowser);
                 return;
             }
             if(typeof _KHFWAP.browser.ucbrowser != "undefined") {
