@@ -1,3 +1,10 @@
+/**
+ *  返利商城-分享承载页
+ *  
+ *  @author: yansiwen
+ *  @date  : 2016-04-06
+ */
+define(function(require, exports, module) {
     /** 
      *  自定义分享内容
      *  
@@ -95,7 +102,6 @@
          */
         getVersion: function(version) {
             var arr = version.split(".");
-            alert("getVersion");
             return parseFloat(arr[0] + "." + arr[1]);
         },
         /**
@@ -133,7 +139,6 @@
          *  @return void
          */
         renderShareHTML: function() {
-            alert("renderShareHTML");
             var self = this,
                 html = '',
                 appList = self.appList,
@@ -162,13 +167,12 @@
         bindEvent: function() {
             var self = this;
             self.triggerBtn.on("click", function() {
-                alert("test");
                 self.box.toggle();
                 if(self.browser.isWeixin) {
                     // 在微信中打开，显示提示层，不显示分享按钮
                     self.shareBySDK();
                 } else if(self.browser.isUCBrowser || self.browser.isQQBrowser) {
-                    alert("UC/QQ Browser");
+                    alert("ucbrowser/qqbrowser");
                     self.shareByNative();
                 } else {
                     self.shareByLink();
@@ -274,3 +278,4 @@
             }
         }, typeof weixinConfig !== "undefined" && weixinConfig);
     });
+});
