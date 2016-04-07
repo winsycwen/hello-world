@@ -82,17 +82,20 @@ function detect(ua, platform) {
 
     if(os.phone) {
         // 如果是手机端的浏览器
+        alert(weixin);
         if (weixin) {
             // 微信
             browser.weixin = true; 
             browser.version = weixin[1];
             return;
         }
+        alert(ucbrowser);
         if (ucbrowser) {
             // UC浏览器
             browser.ucbrowser = true; 
             browser.version = ucbrowser[1];
         }
+        alert(qqbrowser);
         if (qqbrowser) {
             // QQ浏览器
             browser.qqbrowser = true; 
