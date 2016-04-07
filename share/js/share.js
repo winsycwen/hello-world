@@ -64,7 +64,7 @@ CustomShare.prototype = {
             alert(typeof _KHFWAP.browser.qqbrowser != "undefined");
             if(typeof _KHFWAP.browser.qqbrowser != "undefined") {
                 // QQ浏览器
-                if(_KHFWAP.os.android) {
+                if(typeof _KHFWAP.os.android != "undefined") {
                     if(version >= 5.3) {
                         self.browser.isQQBrowser = true;
                         if(version < 5.4) {
@@ -72,17 +72,17 @@ CustomShare.prototype = {
                         }
                     }
                 }
-                if(_KHWAP.os.iphone && version >= 5.4) {
+                if(typeof _KHWAP.os.iphone != "undefined" && version >= 5.4) {
                     self.browser.isQQBrowser = true;
                 }
                 return;
             }
             if(typeof _KHFWAP.browser.ucbrowser != "undefined") {
                 // UC浏览器
-                if(_KHFWAP.os.android && version >= 9.7) {
+                if(typeof _KHFWAP.os.android != "undefined" && version >= 9.7) {
                     self.browser.isUCBrowser = true;
                 }
-                if(_KHFWAP.os.iphone && version >= 10.2) {
+                if(typeof _KHWAP.os.iphone != "undefined" && version >= 10.2) {
                     self.browser.isUCBrowser = true;
                 }
                 return;
