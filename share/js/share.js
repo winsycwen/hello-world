@@ -63,6 +63,7 @@ CustomShare.prototype = {
             } 
             if(typeof _KHFWAP.browser.qqbrowser != "undefined") {
                 // QQ浏览器
+                alert(typeof _KHFWAP.os.android != "undefined");
                 if(typeof _KHFWAP.os.android != "undefined") {
                     if(version >= 5.3) {
                         self.browser.isQQBrowser = true;
