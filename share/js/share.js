@@ -56,12 +56,12 @@ CustomShare.prototype = {
         if(_KHFWAP.os.phone) {
             // 手机端
             self.phone = true;
-            if(_KHFWAP.browser.weixin) {
+            if(typeof _KHFWAP.browser.weixin != "undefined") {
                 // 微信内置浏览器
                 self.browser.isWeixin = true;
                 return;
             } 
-            if(_KHFWAP.browser.qqbrowser) {
+            if(typeof _KHFWAP.browser.qqbrowser != "undefined") {
                 // QQ浏览器
                 if(_KHFWAP.os.android) {
                     if(version >= 5.3) {
@@ -76,7 +76,7 @@ CustomShare.prototype = {
                 }
                 return;
             }
-            if(_KHFWAP.browser.ucbrowser) {
+            if(typeof _KHFWAP.browser.ucbrowser != "undefined") {
                 // UC浏览器
                 if(_KHFWAP.os.android && version >= 9.7) {
                     self.browser.isUCBrowser = true;
