@@ -1,1 +1,7 @@
-{"name":"Hello-world","tagline":"","body":"[获取localstorage](http://winsycwen.github.io/hello-world/getLocalStorage.html)\r\n\r\n\r\n[设置localstorage](http://winsycwen.github.io/hello-world/setLocalStorage.html)\r\n\r\n\r\n[QQ/Qzone/新浪微博分享](http://winsycwen.github.io/hello-world/share/index.html)","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
+{
+  "name": "Hello-world",
+  "tagline": "",
+  "body": "[获取localstorage](http://winsycwen.github.io/hello-world/getLocalStorage.html)\r\n\r\n\r\n[设置localstorage](http://winsycwen.github.io/hello-world/setLocalStorage.html)\r\n\r\n\r\n[QQ/Qzone/新浪微博分享](http://winsycwen.github.io/hello-world/share/index.html)",
+  "google": "",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
