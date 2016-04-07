@@ -71,9 +71,7 @@ CustomShare.prototype = {
                         }
                     }
                 }
-                alert("qqbrowser");
                 if(_KHWAP.os.iphone && version >= 5.4) {
-                    alert("iphone");
                     self.browser.isQQBrowser = true;
                 }
                 return;
@@ -140,6 +138,7 @@ CustomShare.prototype = {
             len = self.appList.length;
 
         self.box = $("<ul>").attr({"id": "#J_customShare", "class": "custom-share-list"});
+        alert(!self.browser.isQQBrowser && !self.browser.isUCBrowser);
         for(var i = 0; i < len; i++) {
             // 手机端中除了QQ、UC、微信浏览器外的其它浏览器中，只显示QQ、QQ空间、微博图标
             if(!self.browser.isQQBrowser && !self.browser.isUCBrowser && (appList[i] === "wechat" || appList[i] === "moments")) {
