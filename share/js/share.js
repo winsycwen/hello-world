@@ -53,6 +53,7 @@ CustomShare.prototype = {
             isUCBrowser: false
         };
         var version = self.getVersion(_KHFWAP.browser.version);
+        alert("_KHFWAP.os.phone: " + _KHFWAP.os.phone);
         if(_KHFWAP.os.phone) {
             // 手机端
             self.phone = true;
