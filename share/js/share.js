@@ -1,8 +1,28 @@
     /** 
      *  WAP自定义分享内容（微信、微信朋友圈、QQ好友、QQ空间、新浪微博）
-     *  
+     *
      *  @author: yansiwen
      *  @date  : 2016-04-06
+     *  
+     *  如何使用？举个栗子：
+     *  new CustomShare({ 
+     *      triggerBtn: "#J_shareBtn",  // 必填，触发显示自定义分享面板的按钮
+     *      link: location.href,        // 必填，自定义分享内容：链接
+     *      title: $("#J_shareTitle").text(),   // 必填，自定义分享内容：标题
+     *      desc: $("#J_shareDesc").text(),     // 必填，自定义分享内容：描述
+     *      imgUrl: $("#J_shareImg").attr("src"),   // 必填，自定义分享内容：图片
+     *      appList: ["wechat", "moments", "qq", "qzone", "weibo"], // 选填，{[Array]}；需要分享社交媒体，默认有微信、微信朋友圈、QQ好友、QQ空间和新浪微博
+     *      trigger: function() {
+     *          // 针对微信：点击浏览器右上角的菜单面板时触发
+     *      },
+     *      success: function(res) {
+     *          // 针对微信：分享成功后执行的回调函数
+     *      },
+     *      cancel: function(res) {
+     *          // 针对微信：取消分享后执行的回调函数
+     *      }
+     *  }, typeof weixinConfig !== "undefined" && weixinConfig); 
+     *  // weixinConfig，{[Object]}；内容包括：appId、timestamp时间戳、nonceStr、signature签名
      */
     function CustomShare(config, weixinConfig) {
         if(typeof config !== "object") {
