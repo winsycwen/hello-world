@@ -1,5 +1,5 @@
     /** 
-     *  自定义分享内容
+     *  WAP自定义分享内容（微信、微信朋友圈、QQ好友、QQ空间、新浪微博）
      *  
      *  @author: yansiwen
      *  @date  : 2016-04-06
@@ -13,13 +13,14 @@
 
         this.config = config || {};
         this.appList = config.appList || ["wechat", "moments", "qq", "qzone", "weibo"]; // 默认分享平台 
-        this.appListTitle = {
-            "wechat": "分享给微信好友",
-            "moments": "分享到微信朋友圈",
-            "qq": "分享给QQ好友",
-            "qzone": "分享到QQ空间",
-            "weibo": "分享到新浪微博"
+        this.appListConfig = {
+            wechat: ["kWeixin", "WechatFriends", 1, "分享给微信好友"],
+            moments: ["kWeixinFriend", "WechatTimeline", 8, "分享到微信朋友圈"],
+            qq: ["kQQ", "QQ", 4, "分享给QQ好友"],
+            qzone: ["kQZone", "QZone", 3, "分享到QQ空间"],
+            weibo: ["kSinaWeibo", "SinaWeibo", 11, "分享到新浪微博"]
         };
+        // 安卓QQ浏览器需要加载的api: 5.3 < qbVersion(QQ浏览器版本) < 5.4表示低版本使用aApiSrc.lower
         this.qApiSrc = {
             lower: "http://3gimg.qq.com/html5/js/qb.js",
             higher: "http://jsapi.qq.com/get?api=app.share"
@@ -43,7 +44,7 @@
         constructor: CustomShare,
         /**
          *  获取浏览器信息：判断是否在手机端的微信/QQ/UC浏览器中打开页面
-         *  Notice: 必须先检测UA是否为微信浏览器，因为在一些手机上微信的UA除了显示为micromessenger还会有MQQBrowser。
+         *  Notice: 须先检测UA是否为微信浏览器，因为在一些手机上微信的UA除了显示为micromessenger还会有MQQBrowser。
          *  @param  void    
          *  @return void
          */
@@ -157,8 +158,8 @@
                     continue;
                 }
                 html += '<li class="share-item">' +
-                            '<a class="'+ appList[i] +'" href="javascript:;" target="_blank" title="'+ self.appListTitle[appList[i]] +'">' +
-                                self.appListTitle[appList[i]] +
+                            '<a class="'+ appList[i] +'" href="javascript:;" target="_blank" title="'+ self.appListConfig[appList[i]][3] +'">' +
+                                self.appListConfig[appList[i]][3] +
                             '</a>' +
                         '</li>';
             }
@@ -219,35 +220,37 @@
          */
         shareByLink: function() {
             var self = this;
+            // QQ/QQ空间自定义分享内容
             var shareConfig = {
                 url: self.config.link,
                 title: self.config.title,
                 summary: self.config.desc,
                 pics: self.config.imgUrl
             };
-            /*var param = [];
-            for(var i in shareConfig) {
-                param.push(i + "=" + encodeURIComponent(shareConfig[i] || ""));
-            }*/
-            var param = self.encodeURI(shareConfig);
+            // 新浪微博自定义分享内容
+            var weiboConfig = {
+                url: self.config.link,
+                title: self.config.desc,
+                pic: shareConfig.pics
+            }
+            var param = self.encodeURI(shareConfig),
+                weiboParam = self.encodeURI(weiboConfig);
+
             self.box.on("click", "a", function(event) {
-                var target = event.target;
-                // if(target.tagName.toLowerCase() === "a") {
-                    var flag = target.className;
-                    switch(flag) {
-                        case "qq": 
-                            window.open("http://connect.qq.com/widget/shareqq/index.html?" + param.join("&"));
-                            break;
-                        case "qzone":
-                            window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + param.join("&"));
-                            break;
-                        case "weibo":
-                            // window.open("http://service.weibo.com/share/share.php?" + param.join("&"));
-                            window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pics));
-                            break;
-                        default: break;
-                    }
-                // }
+                var to_app = event.target.className;
+                switch(to_app) {
+                    case "qq": 
+                        window.open("http://connect.qq.com/widget/shareqq/index.html?" + param.join("&"));
+                        break;
+                    case "qzone":
+                        window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + param.join("&"));
+                        break;
+                    case "weibo":
+                        window.open("http://service.weibo.com/share/share.php?" + weiboParam.join("&"));
+                        // window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pics));
+                        break;
+                    default: break;
+                }
             });
         },
         /**
@@ -257,71 +260,68 @@
          */
         shareByNative: function() {
             var self = this;
-            var ucAppList = {
-                weibo: ['kSinaWeibo', 'SinaWeibo', 11, '新浪微博'],
-                wechat: ['kWeixin', 'WechatFriends', 1, '微信好友'],
-                moments: ['kWeixinFriend', 'WechatTimeline', '8', '微信朋友圈'],
-                qq: ['kQQ', 'QQ', '4', 'QQ好友'],
-                qzone: ['kQZone', 'QZone', '3', 'QQ空间']
-            };
             var from = "金海马商城-返利商城";
+
             self.box.on("click", "a", function(event) {
-                var target = event.target;
-                var flag = target.className;
-                var to_app = flag;
-                var link;               
+                var to_app = event.target.className;
+                var link,tempWarpper;             
                 if(self.browser.isUCBrowser) {
                     // UC浏览器
-                    to_app = (self.os.iphone ? ucAppList[to_app][0] : ucAppList[to_app][1]);
-                    if(to_app == "QZone") {
-                        // 安卓手机中点击QQ空间分享
-                        try {
-                            B = "mqqapi://share/to_qzone?src_type=web&version=1&file_type=news&req_type=1&image_url="+self.config.imgUrl+"&title="+self.config.title+"&description="+self.config.desc+"&url="+self.config.link+"&app_name="+from;
-                            k = document.createElement("div");
-                            k.style.visibility = "hidden";
-                            k.innerHTML = '<iframe src="' + B + '" scrolling="no" width="1" height="1"></iframe>';
-                            document.body.appendChild(k);
-                            setTimeout(function () {
-                                k && k.parentNode && k.parentNode.removeChild(k);
-                            }, 5E3);
-                            return;
-                        } catch(error) {
-                            alert(error.message);
-                        }
-                    }
-                    if (typeof(ucweb) != "undefined") {
-                        ucweb.startRequest("shell.page_share", [self.config.title, self.config.desc, self.config.link, to_app, "", "@" + from, ""]);
-                    } else if (typeof(ucbrowser) != "undefined") {
-                        ucbrowser.web_share(self.config.title, self.config.desc, self.config.link, to_app, "", "@" + from, '');
-                    }
+                    shareOnUCBrowser(to_app);
                 } else if(self.browser.isQQBrowser) {
                     // QQ浏览器
-                    to_app = ucAppList[to_app][2];
-                    var ah = {
-                        url: self.config.link,
-                        title: self.config.title,
-                        description: self.config.desc,
-                        img_url: self.config.imgUrl,
-                        img_title: "",
-                        to_app: to_app,//微信好友1,腾讯微博2,QQ空间3,QQ好友4,生成二维码7,微信朋友圈8,啾啾分享9,复制网址10,分享到微博11,创意分享13
-                        cus_txt: "请输入此时此刻想要分享的内容"
-                    };
-                    ah = to_app == '' ? '' : ah;
-                    if (typeof(browser) != "undefined") {
-                        if (typeof(browser.app) != "undefined" && self.browser.qqVersion == "higher") {
-                            browser.app.share(ah);
-                        }
-                    } else {
-                        if (typeof(window.qb) != "undefined" && self.browser.qqVersion == "lower") {
-                            window.qb.share(ah);
-                        } else {
-                        }
-                    }
+                    shareOnQQBrowser(to_app);
                 }
             });
+
+            // 安卓/IOS手机UC浏览器下的分享
+            function shareOnUCBrowser(to_app) {
+                var link,tempWarpper;
+                to_app = (self.os.iphone ? self.appListConfig[to_app][0] : self.appListConfig[to_app][1]);
+                
+                if(to_app == "QZone") {
+                    // 安卓手机中点击QQ空间分享
+                    link = "mqqapi://share/to_qzone?src_type=web&version=1&file_type=news&req_type=1&image_url="+self.config.imgUrl+"&title="+self.config.title+"&description="+self.config.desc+"&url="+self.config.link+"&app_name="+from;
+                    
+                    tempWarpper = $("<div>").attr("visibility", "hidden")
+                                            .html('<iframe src="' + link + '" scrolling="no" width="1" height="1"></iframe>')
+                                            .appendTo($("body"));
+
+                    setTimeout(function () {
+                        tempWarpper && tempWarpper.remove();
+                    }, 5E3);
+                }
+                if (typeof(ucweb) != "undefined") {
+                    ucweb.startRequest("shell.page_share", [self.config.title, self.config.desc, self.config.link, to_app, "", "@" + from, ""]);
+                } else if (typeof(ucbrowser) != "undefined") {
+                    ucbrowser.web_share(self.config.title, self.config.desc, self.config.link, to_app, "", "@" + from, '');
+                }
+            }
+
+            // 安卓/IOS手机QQ浏览器下的分享
+            function shareOnQQBrowser(to_app) {
+                to_app = self.appListConfig[to_app][2]; 
+                var config = {
+                    url: self.config.link,
+                    title: self.config.title,
+                    description: self.config.desc,
+                    img_url: self.config.imgUrl,
+                    img_title: "",
+                    to_app: to_app,//微信好友1,腾讯微博2,QQ空间3,QQ好友4,生成二维码7,微信朋友圈8,啾啾分享9,复制网址10,分享到微博11,创意分享13
+                    cus_txt: "请输入此时此刻想要分享的内容"
+                };
+                config = to_app == '' ? '' : config;
+                if (typeof(browser) != "undefined") {
+                    if (typeof(browser.app) != "undefined" && self.browser.qqVersion == "higher") {
+                        browser.app.share(config);
+                    }
+                } else if (typeof(window.qb) != "undefined" && self.browser.qqVersion == "lower") {
+                    window.qb.share(config);
+                } 
+            }
         },
         /**
-         *  转换对象为uri参数
+         *  遍历自定义分享内容对象，并把每一项key-value作为URI字符串进行编码处理
          *  @param  {[object]}  变量名 变量描述
          *  @return void
          */
@@ -332,6 +332,12 @@
             }
             return param;
         },
+        /**
+         *  安卓手机下，根据QQ浏览器的版本高/低加载不同的api
+         * （5.3 < qbVersion(QQ浏览器版本) < 5.4表示低版本使用aApiSrc.lower）
+         *  @param    {[object]}    变量名    变量描述
+         *  @return    void
+         */
         loadQQApi: function() {
             var version = this.browser.qqVersion === "lower" ? this.qApiSrc.lower : this.qApiSrc.higher;
             $("body").append('<script src="'+ version +'"></script>');
