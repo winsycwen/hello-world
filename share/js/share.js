@@ -81,7 +81,6 @@
                 qqVersion: "higher",
                 isUCBrowser: false
             };
-            alert("test");
             var version = self.getVersion(_KHFWAP.browser.version);
             if(_KHFWAP.os.phone) {
                 // 手机端
