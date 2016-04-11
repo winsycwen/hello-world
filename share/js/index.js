@@ -49,7 +49,7 @@ _KHFWAP.domReady(function() {
         from:'王俊锋的博客' // 来源
     };
     share_obj = new nativeShare('nativeShare',config);
-    document.getElementById("isWeixin").innerHTML = share_obj.is_weixin() ? "是": "否";
+    // document.getElementById("isWeixin").innerHTML = share_obj.is_weixin() ? "是": "否";
 });
 
 // 获取浏览器UA信息
