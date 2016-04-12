@@ -75,6 +75,7 @@ var nativeShare = function (elementNode, config) {
                 alert(to_app + isqqBrowser);
                 if (typeof(browser) != "undefined") {
                     if (typeof(browser.app) != "undefined" && isqqBrowser == bLevel.qq.higher) {
+                        alert("test");
                         browser.app.share(ah)
                     }
                 } else {
