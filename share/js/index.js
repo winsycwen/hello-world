@@ -1,76 +1,3 @@
-(function(){
-	var shareTitle = $("#title").text(),
-		shareContent = $("#content").text(),
-		sharePicLink = $(".container img").attr("src");
-	var shareConfig = {
-		url: location.href,
-		title: shareTitle,
-		summary: shareContent,
-		pics: sharePicLink
-	};
-	var s = [];
-	for(var i in shareConfig) {
-		s.push(i + "=" + encodeURIComponent(shareConfig[i] || ""));
-	}
-	$("#J_share").on("click", function(event) {
-		var flag;
-		var target = event.target;
-		if(target.tagName.toLowerCase() === "i") {
-			flag = target.className && target.className.split("-")[1];
-			switch(flag) {
-				case "qq": 
-					window.open("http://connect.qq.com/widget/shareqq/index.html?" + s.join("&"));
-					break;
-				case "qzone":
-					window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + s.join("&"));
-					break;
-				case "wb":
-					// window.open("http://service.weibo.com/share/share.php?" + s.join("&"));
-					window.open("http://service.weibo.com/share/share.php?url=" + encodeURIComponent(shareConfig.url) + "&title=" + encodeURIComponent(shareConfig.summary) + "&pic=" + encodeURIComponent(shareConfig.pics));
-					break;
-				default: break;
-			}
-		}
-	});
-})();
-
-
-_KHFWAP.domReady(getMessage);
-
-// 测试分享功能
-var share_obj;
-_KHFWAP.domReady(function() {
-    var config = {
-        url:'http://blog.wangjunfeng.com',// 分享的网页链接
-        title:'王俊锋的个人博客',// 标题
-        desc:'王俊锋的个人博客',// 描述
-        img:'http://www.wangjunfeng.com/img/face.jpg',// 图片
-        img_title:'王俊锋的个人博客',// 图片标题
-        from:'王俊锋的博客' // 来源
-    };
-    share_obj = new nativeShare('nativeShare',config);
-    // document.getElementById("isWeixin").innerHTML = share_obj.is_weixin() ? "是": "否";
-});
-
-// 获取浏览器UA信息
-function getMessage() {
-
-    document.getElementById("ua").innerHTML = "UserAgent：" + navigator.userAgent + "; Platform: " + navigator.platform;
-
-    var str = "";
-    for(var osObj in _KHFWAP.os) {
-        str += (osObj + ": " + _KHFWAP.os[osObj] + ";");
-        document.getElementById("platform").innerHTML = str;
-    }
-    
-    str = "";
-
-    for(var browserObj in _KHFWAP.browser) {
-        str += (browserObj + ": " + _KHFWAP.browser[browserObj] + ";");
-        document.getElementById("browser").innerHTML = str;
-    }
-}
-
 /**
  * Created by Jeffery Wang.
  * Create Time: 2015-06-16 19:52
@@ -133,8 +60,7 @@ var nativeShare = function (elementNode, config) {
                 }
             }
         } else {
-            // if (isqqBrowser && !isWeixin) {
-            if(isqqBrowser) {
+            if (isqqBrowser && !isWeixin) {
                 to_app = to_app == '' ? '' : this.ucAppList[to_app][2];
                 var ah = {
                     url: url,
@@ -212,7 +138,7 @@ var nativeShare = function (elementNode, config) {
         version.qq = isqqBrowser ? this.getVersion(UA.split("MQQBrowser/")[1]) : 0;
         version.uc = isucBrowser ? this.getVersion(UA.split("UCBrowser/")[1]) : 0;
         isWeixin = this.is_weixin();
-        /*if ((isqqBrowser && version.qq < 5.4 && platform_os == "iPhone") || (isqqBrowser && version.qq < 5.3 && platform_os == "Android")) {
+        if ((isqqBrowser && version.qq < 5.4 && platform_os == "iPhone") || (isqqBrowser && version.qq < 5.3 && platform_os == "Android")) {
             isqqBrowser = bLevel.qq.forbid
         } else {
             if (isqqBrowser && version.qq < 5.4 && platform_os == "Android") {
@@ -222,13 +148,13 @@ var nativeShare = function (elementNode, config) {
                     isucBrowser = bLevel.uc.forbid
                 }
             }
-        }*/
+        }
         this.isloadqqApi();
         if (isqqBrowser || isucBrowser) {
             this.html();
-        } /*else {
+        } else {
             document.write('目前该分享插件仅支持手机UC浏览器和QQ浏览器');
-        }*/
+        }
     };
 
     this.init();
