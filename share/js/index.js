@@ -72,7 +72,7 @@ var nativeShare = function (elementNode, config) {
                     cus_txt: "请输入此时此刻想要分享的内容"
                 };
                 ah = to_app == '' ? '' : ah;
-                alert(to_app);
+                alert(to_app, isqqBrowser);
                 if (typeof(browser) != "undefined") {
                     if (typeof(browser.app) != "undefined" && isqqBrowser == bLevel.qq.higher) {
                         browser.app.share(ah)
