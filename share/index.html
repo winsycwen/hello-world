@@ -39,15 +39,14 @@
 		<p>是否在微信内置浏览器内：<span id="isWeixin"></span></p>
 		<p id="isphone"></p>
 	</div>
-	
-	<link rel="stylesheet" href="nativeShare.css"/>
-
+<div id="nativeShare"></div>
 	<script src="js/jquery.js"></script>
 	<script src="js/core.js"></script>
 	<script src="js/index.js"></script>
 	<!-- // <script src="js/share.js"></script> -->
 	<script>
-	    var config = {
+	window.onload = function() {
+		var config = {
 	        url:'http://blog.wangjunfeng.com',// 分享的网页链接
 	        title:'王俊锋的个人博客',// 标题
 	        desc:'王俊锋的个人博客',// 描述
@@ -56,6 +55,8 @@
 	        from:'王俊锋的博客' // 来源
 	    };
 	    var share_obj = new nativeShare('nativeShare',config);
+	};
+	    
 </script>
 </body>
 </html>
