@@ -231,7 +231,8 @@ var weixinConfig = {
 // 分享的标题以及描述
 var SHARECONFIG = {
     title: "我的金海马商城小店，购买可获返现哦~",
-    desc: "我的金海马商城小店（老徐的小店），分享购买可获返利哦~家居百货买起来！"
+    desc: "我的金海马商城小店（老徐的小店），分享购买可获返利哦~家居百货买起来！",
+    imgUrl: "http://static.jjcdn.com/mobile/images/rebate-share-img.png"
 };
 // 筛选二级类目数据
 var classificData = {

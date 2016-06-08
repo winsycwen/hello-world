@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PC分享</title>
+</head>
+<body>
+	<ul id="J_share">
+		<li class="qq" data-type="qq">分享到QQ</li>
+		<li class="weibo" data-type="weibo">分享到微博</li>
+		<li class="qzone" data-type="qzone">分享到QQ空间</li>
+	</ul>
+	<script>
+	window.onload = function() {
+	    var shareConfig = {
+                url: "www.kinhom.com",// 分享的网页链接
+                title: '标题',// 标题
+                summary: '描述',// 描述
+                pics: 'http://img3.jjcdn.com/g1/M00/03/4A/CvoBNFYqAY6ABymFAAS7E5xgneM249.jpg!mid'
+            };
+        // 新浪微博自定义分享内容
+        var weiboConfig = {
+            url: "www.kinhom.com",// 分享的网页链接
+            title: '标题',// 标题
+            pic: 'http://img3.jjcdn.com/g1/M00/03/4A/CvoBNFYqAY6ABymFAAS7E5xgneM249.jpg!mid'
+        }
+	    function encodeShareURI(shareConfig) {
+            var param = [];
+            for(var i in shareConfig) {
+                param.push(i + "=" + encodeURIComponent(shareConfig[i] || ""));
+            }
+            return param;
+        }
+        var param = encodeShareURI(shareConfig);
+        var weiboParam = encodeShareURI(weiboConfig);
+        var target = document.getElementById("J_share");
+        target.addEventListener("click", function(event) {
+        	var obj = event.target;
+        	var to_app = obj.getAttribute("data-type");
+            switch(to_app) {
+                case "qq": 
+                    window.open("http://connect.qq.com/widget/shareqq/index.html?" + param.join("&"));
+                    break;
+                case "qzone": 
+                    window.open("http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + param.join("&"));
+                    break;
+                case "weibo":
+                    window.open("http://service.weibo.com/share/share.php?" + weiboParam.join("&"));
+                    break;
+                default: break;
+            }
+        }, false);
+	};
+	</script>
+</body>
+</html>
