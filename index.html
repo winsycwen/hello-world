@@ -3,44 +3,111 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>水平居中和垂直居中</title>
+    <style type="text/css">
+    .inline-horizontal-center {
+        text-align: center;
+    }
+    
+    .block-horizontal-center {
+        width: 100px;
+        margin: 0 auto;
+    }
+    
+    .vertical-center-0,
+    .vertical-center-1,
+    .vertical-center-2,
+    .vertical-center-3,
+    .vertical-center-4 {
+        position: relative;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .vertical-center-0 p {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        margin: auto;
+        width: 100px;
+        height: 108px;
+    }
+    .vertical-center-1 p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -54px;
+        width: 100px;
+        height: 108px;
+    }
+    .vertical-center-2 p {
+        position: absolute;
+        left: calc(50% - 50px); /* calc()函数中%是根据父元素的宽度计算 */
+        top: calc(50% - 54px);
+        width: 100px;
+        height: 108px;
+    }
+    .vertical-center-3 p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .vertical-center-4 p {
+        width: 100px;
+        margin: 50vh auto 0;
+        transform: translateY(-50%);
+    }
+    .vertical-center-5 {
+        display: flex;
+        min-height: 200px;
+    }
+    .vertical-center-5 p {
+        margin: auto;
+    }
+    </style>
 </head>
 
 <body>
-    <ul class="item1"></ul>
-    <ul class="item2"></ul>
-    <ul class="item3"></ul>
-    <ul class="item4"></ul>
-    <ul class="item5"></ul>
-    <h1 class="title1">Header 1</h1>
-    <h2 class="title2">Header 2</h2>
-    <h3 class="title3">Header 3</h3>
-    <h4 class="title4">Header 4</h4>
-    <h5 class="title5">Header 5</h5>
-    <ul>
-        <li class="item001"></li>
-        <li class="item002"></li>
-        <li class="item003"></li>
-        <li class="item004"></li>
-        <li class="item005"></li>
-    </ul>
-    <ul>
-        <li class="item3"></li>
-        <li class="item4"></li>
-        <li class="item5"></li>
-        <li class="item6"></li>
-        <li class="item7"></li>
-    </ul>
-    <ul>
-        <li class="item2"></li>
-        <li class="item3"></li>
-        <li class="item4"></li>
-    </ul>
+    <h1>水平居中和垂直居中</h1>
+    <hr>
+    
+    <h2>行内元素水平居中</h2>
+    <div class="inline-horizontal-center">
+        <span>如果想让一个行内元素水平居中，对其父元素应用text-align: center。</span>
+    </div>
+    <h2>块级元素水平居中</h2>
+    <div class="block-horizontal-center">如果想让一个块级元素水平居中，对元素自身应用margin: auto。</div>
+    <hr>
 
-    <ul>
-        <li class="item6"></li>
-        <li class="item5"></li>
-    </ul>
+    <h2>基于绝对定位的居中</h2>
+    <div class="vertical-center-0">
+        <p>使用“绝对定位方式”将固定宽高元素水平、垂直居中</p>
+    </div>
+    <div class="vertical-center-1">
+        <p>使用“绝对定位以及margin负值”方式将固定宽高元素水平、垂直居中</p>
+    </div>
+    <div class="vertical-center-2">
+        <p>使用“绝对定位融合cac()函数”方式将固定宽高元素水平、垂直居中</p>
+    </div>
+    <div class="vertical-center-3">
+        <p>使用“绝对定位以及transform”方式将不定宽高元素水平、垂直居中</p>
+    </div>
+    <hr>
+
+    <h2>基于视口单位的居中</h2>
+    <div class="vertical-center-4">
+        <p>使用“视口单位vh以及transform”方式将固定宽度的元素水平、垂直居中(它只适用于在视口中居中的场景)</p>
+    </div>
+    <hr>
+
+    <h2>基于FlexBox的居中</h2>
+    <div class="vertical-center-5">
+        <p>使用“FlexBox”的方式将元素居中</p>
+    </div>
 </body>
 
 </html>
