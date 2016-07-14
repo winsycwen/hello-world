@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>保持文字、图片垂直居中</title>
+    <style type="text/css">
+    .container1 {
+        background-color: yellow;
+    }
+    
+    .container1 span {
+        font-size: 30px;
+        vertical-align: middle;
+        background-color: black;
+        color: white;
+    }
+    
+    .container1 img {
+        vertical-align: middle;
+    }
+    
+    .container2 {
+        font-size: 30px;
+        line-height: 209px;
+        background-color: yellow;
+    }
+    
+    .container2 span {
+        background-color: black;
+        color: white;
+    }
+    
+    .container2 img {
+        vertical-align: bottom;
+    }
+    
+    .list {
+        margin-top: 20px;
+        background-color: yellow;
+        font-size: 0;
+    }
+    
+    .list li {
+        display: inline-block;
+        font-size: 30px;
+        border: 3px solid red;
+    }
+    
+    .inline-word {
+        margin-top: 20px;
+        border: 1px dotted red;
+    }
+    
+    .container3 {
+        margin-top: 20px;
+        font-size: 30px;
+        background-color: yellow;
+    }
+    
+    .container3 img {
+        vertical-align: middle;
+    }
+    
+    .container3 .content {
+        display: inline-block;
+        width: 200px;
+        background-color: black;
+        color: white;
+        vertical-align: middle;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>使用vertical middle</h2>
+    <div class="container1">
+        <img class="pic1" src="img/pic1.jpg">
+        <span>你好啊，ap中国bEcgc好EEag费pgcyqmxsjil股</span>
+        <img class="pic2" src="img/present.png">
+    </div>
+    <hr>
+    <h2>使用vertical bottom和line-height</h2>
+    <div class="container2">
+        <img src="img/pic1.jpg">
+        <span>你好啊，ap中国bEcgc好EEag费pgcyqmxsjil股</span>
+        <img src="img/pic1.jpg" alt="">
+    </div>
+    <ul class="list">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+    </ul>
+    <div class="container3">
+        <img src="img/pic1.jpg">
+        <span class="content">你好啊，ap中国bEcgc好EEag费pgcyqmxsjil股国bEcgc好EEag费国bEcgc好EEag费国bEcgc好EEag费</span>
+    </div>
+</body>
+
+</html>
