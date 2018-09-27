@@ -137,10 +137,43 @@
         var pageScroll = document.documentElement.scrollTop;
         var delta = pageScroll - lastScrollTop; 
 
-        fixedNav(delta, pageScroll);
+        fixedNav(delta, pageScroll, function() {
+          lastScrollTop = pageScroll;
+        });
       };
 
-      function fixedNav(delta, pageScroll) {
+      function fixedNav(delta, pageScroll, callback) {
+        count ++;
+        countDom.innerHTML = count;
+        if (delta >= 0 && pageScroll >= offsetTop) {
+          // 页面下滚
+          navDom.classList.add('fixed');
+          countDom.innerHTML = 'add fixed class';
+        } else if (delta <= 0 && pageScroll <= offsetTop) {
+          // 页面上滚
+          navDom.classList.remove('fixed');
+          countDom.innerHTML = 'remove fixed class';
+        }
+        callback && callback();
+      }
+      wrapper.addEventListener('touchstart', function(event) {
+        console.log('touchstart:');
+        console.log(event)
+        lastScrollTop = event.touches[0].pageY;
+      });
+      wrapper.addEventListener('touchmove', function(event) {
+        console.log('touchmove:');
+        console.log(event)
+        var pageScroll = event.touches[0].pageY;
+        var delta = pageScroll - lastScrollTop;
+          // console.log(delta)
+
+        fixedNavAnother(delta, pageScroll, function() {
+          lastScrollTop = pageScroll;
+        });
+      });
+
+      function fixedNavAnother(delta, pageScroll, callback) {
         count ++;
         countDom.innerHTML = count;
         if (delta >= 0 && pageScroll >= offsetTop) {
@@ -150,7 +183,7 @@
           navDom.classList.remove('fixed');
           countDom.innerHTML = 'remove fixed class';
         }
-        lastScrollTop = pageScroll;
+        callback && callback();
       }
     };
   </script>
