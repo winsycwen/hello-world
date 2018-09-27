@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #count.fixed {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 20px;
+      background-color: #000;
+      color: #fff;
+    }
+    .other-content {
+      padding-top: 20px;
+    }
+    #nav {
+      position: absolute;
+      width: 100%;
+      height: 30px;
+    }
+    #nav.fixed {
+      position: fixed;
+      top: 20px;
+    }
+    .nav-list {
+      width: 100%;
+      height: 30px;
+      background: #3F51B5;
+      color: #fff;
+      transform: translate3d(0, 0, 0);
+    }
+    #content {
+      padding-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper" class="wrapper">
+    <div id="count" class="fixed">0</div>
+    <div id="otherContent" class="other-content">
+      <p>啊</p>
+      <p>啊1</p>
+      <p>啊2</p>
+      <p>啊3</p>
+      <p>啊4</p>
+      <p>啊5</p>
+      <p>啊6</p>
+    </div>
+    <div id="nav">
+      <div class="nav-list">置顶导航</div>
+    </div>
+    <div id="content">
+      <p>测试</p>
+      <p>测试1</p>
+      <p>测试2</p>
+      <p>测试3</p>
+      <p>测试4</p>
+      <p>测试5</p>
+      <p>测试6</p>
+      <p>测试7</p>
+      <p>测试8</p>
+      <p>测试9</p>
+      <p>测试10</p>
+      <p>测试11</p>
+      <p>测试12</p>
+      <p>测试13</p>
+      <p>测试14</p>
+      <p>测试15</p>
+      <p>测试16</p>
+      <p>测试17</p>
+      <p>测试18</p>
+      <p>测试19</p>
+      <p>测试20</p>
+      <p>测试21</p>
+      <p>测试22</p>
+      <p>测试23</p>
+      <p>测试24</p>
+      <p>测试25</p>
+      <p>测试26</p>
+      <p>测试27</p>
+      <p>测试28</p>
+      <p>测试29</p>
+      <p>测试30</p>
+      <p>测试31</p>
+      <p>测试32</p>
+      <p>测试33</p>
+      <p>测试34</p>
+      <p>测试35</p>
+      <p>测试36</p>
+      <p>测试37</p>
+      <p>测试38</p>
+      <p>测试39</p>
+      <p>测试40</p>
+      <p>测试41</p>
+      <p>测试42</p>
+      <p>测试43</p>
+      <p>测试44</p>
+      <p>测试45</p>
+      <p>测试46</p>
+      <p>测试47</p>
+      <p>测试48</p>
+      <p>测试49</p>
+      <p>测试50</p>
+      <p>测试51</p>
+      <p>测试52</p>
+      <p>测试53</p>
+      <p>测试54</p>
+      <p>测试55</p>
+      <p>测试56</p>
+      <p>测试57</p>
+      <p>测试58</p>
+      <p>测试59</p>
+      <p>测试60</p>
+    </div>
+  </div>
+  <script>
+    window.onload = function() {
+      var count = 0;
+      var countDom = document.getElementById('count');
+
+      var lastScrollTop = 0;
+      var navDom = document.getElementById('nav');
+      var offsetTop = navDom.offsetTop - 20;
+      var wrapper = document.getElementById('wrapper');
+
+      window.onscroll = function() {
+        count ++;
+        countDom.innerHTML = count;
+
+        var pageScroll = document.documentElement.scrollTop;
+        var delta = pageScroll - lastScrollTop; 
+
+        fixedNav(delta, pageScroll);
+      };
+
+      function fixedNav(delta, pageScroll) {
+        if (delta >= 0 && pageScroll >= offsetTop) {
+          navDom.classList.add('fixed');
+        } else if (delta <= 0 && pageScroll <= offsetTop) {
+          navDom.classList.remove('fixed');
+        }
+        lastScrollTop = pageScroll;
+      }
+    };
+  </script>
+</body>
+</html>
