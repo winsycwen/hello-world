@@ -17,6 +17,7 @@
       height: 20px;
       background-color: #000;
       color: #fff;
+      z-index: 2;
     }
     .other-content {
       padding-top: 20px;
@@ -29,6 +30,7 @@
     #nav.fixed {
       position: fixed;
       top: 20px;
+      z-index: 1;
     }
     .nav-list {
       width: 100%;
@@ -132,9 +134,6 @@
       var wrapper = document.getElementById('wrapper');
 
       window.onscroll = function() {
-        count ++;
-        countDom.innerHTML = count;
-
         var pageScroll = document.documentElement.scrollTop;
         var delta = pageScroll - lastScrollTop; 
 
@@ -142,10 +141,14 @@
       };
 
       function fixedNav(delta, pageScroll) {
+        count ++;
+        countDom.innerHTML = count;
         if (delta >= 0 && pageScroll >= offsetTop) {
           navDom.classList.add('fixed');
+          countDom.innerHTML = 'add fixed class';
         } else if (delta <= 0 && pageScroll <= offsetTop) {
           navDom.classList.remove('fixed');
+          countDom.innerHTML = 'remove fixed class';
         }
         lastScrollTop = pageScroll;
       }
