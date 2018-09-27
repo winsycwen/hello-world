@@ -14,7 +14,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      height: 20px;
+      height: 70px;
       background-color: #000;
       color: #fff;
       z-index: 2;
@@ -29,7 +29,7 @@
     }
     #nav.fixed {
       position: fixed;
-      top: 20px;
+      top: 70px;
       z-index: 1;
     }
     .nav-list {
@@ -122,7 +122,11 @@
       <p>测试59</p>
       <p>测试60</p>
     </div>
-    <div id="back" class="back-btn">回到顶部</div>
+    <div id="back-with-html" class="back-btn">回到顶部（back-width-html）</div>
+    <div id="back-with-body" class="back-btn">回到顶部（back-width-body）</div>
+    <div id="back-with-document" class="back-btn">回到顶部（back-width-document）</div>
+    <div id="back-with-window" class="back-btn">回到顶部（back-width-window）</div>
+    <div id="back-with-animate" class="back-btn">回到顶部（back-with-animate）</div>
   </div>
   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script>
@@ -132,13 +136,23 @@
 
       var lastScrollTop = 0;
       var navDom = document.getElementById('nav');
-      var offsetTop = navDom.offsetTop - 20;
+      var offsetTop = navDom.offsetTop - $('#count').outerHeight();
       var wrapper = document.getElementById('wrapper');
 
       window.onscroll = function() {
         // var pageScroll = document.documentElement.scrollTop;
-        var pageScroll = $("html").scrollTop() || $("body").scrollTop();
+        var pageScroll = $('html').scrollTop() || $('body').scrollTop();
         var delta = pageScroll - lastScrollTop; 
+        var html = '';
+
+        count ++;
+        html += 'count: ' + count + ', ';
+        html += 'offsetTop' + offsetTop + ', ';
+        html += 'htmlPageScroll: ' + $('html').scrollTop() + ', ';
+        html += 'bodyPageScroll: ' + $('body').scrollTop() + ', ';
+        html += 'documentPageScroll: ' + $(document).scrollTop() + ', ';
+        html += 'windowPageScroll: ' + $(window).scrollTop() + ', ';
+        countDom.innerHTML = html;
 
         fixedNav(delta, pageScroll, function() {
           lastScrollTop = pageScroll;
@@ -146,8 +160,6 @@
       };
 
       function fixedNav(delta, pageScroll, callback) {
-        count ++;
-        countDom.innerHTML = 'count: ' + count + ', pageScroll: ' + pageScroll + ', offsetTop' + offsetTop;
         if (delta >= 0 && pageScroll >= offsetTop) {
           // 页面下滚
           navDom.classList.add('fixed');
@@ -158,8 +170,20 @@
         callback && callback();
       }
 
-      $('#back').on('click', function() {
-        $("html").scrollTop(0);
+      $('#back-with-html').on('click', function() {
+        $('html').scrollTop(0);
+      });
+      $('#back-with-body').on('click', function() {
+        $('body').scrollTop(0);
+      });
+      $('#back-with-document').on('click', function() {
+        $(document).scrollTop(0);
+      });
+      $('#back-with-window').on('click', function() {
+        $(window).scrollTop(0);
+      });
+      $('#back-with-animate').on('click', function() {
+        $('html, body').animate({scrollTop: 0});
       });
     };
   </script>
