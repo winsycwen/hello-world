@@ -123,6 +123,7 @@
       <p>测试60</p>
     </div>
   </div>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
   <script>
     window.onload = function() {
       var count = 0;
@@ -134,7 +135,8 @@
       var wrapper = document.getElementById('wrapper');
 
       window.onscroll = function() {
-        var pageScroll = document.documentElement.scrollTop;
+        // var pageScroll = document.documentElement.scrollTop;
+        var pageScroll = $('body').scrollTop();
         var delta = pageScroll - lastScrollTop; 
 
         fixedNav(delta, pageScroll, function() {
@@ -154,35 +156,6 @@
         }
         callback && callback();
       }
-      // wrapper.addEventListener('touchstart', function(event) {
-      //   console.log('touchstart:');
-      //   console.log(event)
-      //   lastScrollTop = event.touches[0].pageY;
-      // });
-      // wrapper.addEventListener('touchmove', function(event) {
-      //   console.log('touchmove:');
-      //   console.log(event)
-      //   var pageScroll = event.touches[0].pageY;
-      //   var delta = pageScroll - lastScrollTop;
-      //     // console.log(delta)
-
-      //   fixedNavAnother(delta, pageScroll, function() {
-      //     lastScrollTop = pageScroll;
-      //   });
-      // });
-
-      // function fixedNavAnother(delta, pageScroll, callback) {
-      //   count ++;
-      //   countDom.innerHTML = count;
-      //   if (delta >= 0 && pageScroll >= offsetTop) {
-      //     navDom.classList.add('fixed');
-      //     countDom.innerHTML = 'add fixed class';
-      //   } else if (delta <= 0 && pageScroll <= offsetTop) {
-      //     navDom.classList.remove('fixed');
-      //     countDom.innerHTML = 'remove fixed class';
-      //   }
-      //   callback && callback();
-      // }
     };
   </script>
 </body>
