@@ -136,7 +136,7 @@
 
       window.onscroll = function() {
         // var pageScroll = document.documentElement.scrollTop;
-        var pageScroll = $('body').scrollTop();
+        var pageScroll = $('html, body').scrollTop();
         var delta = pageScroll - lastScrollTop; 
 
         fixedNav(delta, pageScroll, function() {
