@@ -133,29 +133,29 @@
       var offsetTop = navDom.offsetTop - 20;
       var wrapper = document.getElementById('wrapper');
 
-      window.onscroll = function() {
-        var pageScroll = document.documentElement.scrollTop;
-        var delta = pageScroll - lastScrollTop; 
+      // window.onscroll = function() {
+      //   var pageScroll = document.documentElement.scrollTop;
+      //   var delta = pageScroll - lastScrollTop; 
 
-        fixedNav(delta, pageScroll, function() {
-          lastScrollTop = pageScroll;
-        });
-      };
+      //   fixedNav(delta, pageScroll, function() {
+      //     lastScrollTop = pageScroll;
+      //   });
+      // };
 
-      function fixedNav(delta, pageScroll, callback) {
-        count ++;
-        countDom.innerHTML = count;
-        if (delta >= 0 && pageScroll >= offsetTop) {
-          // 页面下滚
-          navDom.classList.add('fixed');
-          countDom.innerHTML = 'add fixed class';
-        } else if (delta <= 0 && pageScroll <= offsetTop) {
-          // 页面上滚
-          navDom.classList.remove('fixed');
-          countDom.innerHTML = 'remove fixed class';
-        }
-        callback && callback();
-      }
+      // function fixedNav(delta, pageScroll, callback) {
+      //   count ++;
+      //   countDom.innerHTML = count;
+      //   if (delta >= 0 && pageScroll >= offsetTop) {
+      //     // 页面下滚
+      //     navDom.classList.add('fixed');
+      //     countDom.innerHTML = 'add fixed class';
+      //   } else if (delta <= 0 && pageScroll <= offsetTop) {
+      //     // 页面上滚
+      //     navDom.classList.remove('fixed');
+      //     countDom.innerHTML = 'remove fixed class';
+      //   }
+      //   callback && callback();
+      // }
       wrapper.addEventListener('touchstart', function(event) {
         console.log('touchstart:');
         console.log(event)
