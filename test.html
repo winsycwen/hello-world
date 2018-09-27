@@ -1,191 +1,1128 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<!--[if IE 9]><html class="ie9 no-js" lang="cn"><![endif]-->
+<!--[if !IE]>-->
+<html lang="cn" class="no-js" from="CMS:Overseas2cn">
+<!--<![endif]-->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    #count.fixed {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 70px;
-      background-color: #000;
-      color: #fff;
-      z-index: 2;
-    }
-    .other-content {
-      padding-top: 20px;
-    }
-    #nav {
-      position: absolute;
-      width: 100%;
-      height: 30px;
-    }
-    .nav-list {
-      width: 100%;
-      height: 30px;
-      background: #3F51B5;
-      color: #fff;
-      transform: translate3d(0, 0, 0);
-    }
-    .nav-list.fixed {
-      position: fixed;
-      top: 70px;
-      z-index: 1;
-    }
-    #content {
-      padding-top: 30px;
-    }
-  </style>
-</head>
-<body>
-  <div id="wrapper" class="wrapper">
-    <div id="count" class="fixed">0</div>
-    <div id="otherContent" class="other-content">
-      <p>啊</p>
-      <p>啊1</p>
-      <p>啊2</p>
-      <p>啊3</p>
-      <p>啊4</p>
-      <p>啊5</p>
-      <p>啊6</p>
-    </div>
-    <div id="nav">
-      <div class="nav-list">置顶导航</div>
-    </div>
-    <div id="content">
-      <p>测试</p>
-      <p>测试1</p>
-      <p>测试2</p>
-      <p>测试3</p>
-      <p>测试4</p>
-      <p>测试5</p>
-      <p>测试6</p>
-      <p>测试7</p>
-      <p>测试8</p>
-      <p>测试9</p>
-      <p>测试10</p>
-      <p>测试11</p>
-      <p>测试12</p>
-      <p>测试13</p>
-      <p>测试14</p>
-      <p>测试15</p>
-      <p>测试16</p>
-      <p>测试17</p>
-      <p>测试18</p>
-      <p>测试19</p>
-      <p>测试20</p>
-      <p>测试21</p>
-      <p>测试22</p>
-      <p>测试23</p>
-      <p>测试24</p>
-      <p>测试25</p>
-      <p>测试26</p>
-      <p>测试27</p>
-      <p>测试28</p>
-      <p>测试29</p>
-      <p>测试30</p>
-      <p>测试31</p>
-      <p>测试32</p>
-      <p>测试33</p>
-      <p>测试34</p>
-      <p>测试35</p>
-      <p>测试36</p>
-      <p>测试37</p>
-      <p>测试38</p>
-      <p>测试39</p>
-      <p>测试40</p>
-      <p>测试41</p>
-      <p>测试42</p>
-      <p>测试43</p>
-      <p>测试44</p>
-      <p>测试45</p>
-      <p>测试46</p>
-      <p>测试47</p>
-      <p>测试48</p>
-      <p>测试49</p>
-      <p>测试50</p>
-      <p>测试51</p>
-      <p>测试52</p>
-      <p>测试53</p>
-      <p>测试54</p>
-      <p>测试55</p>
-      <p>测试56</p>
-      <p>测试57</p>
-      <p>测试58</p>
-      <p>测试59</p>
-      <p>测试60</p>
-    </div>
-    <div id="back-with-html" class="back-btn">回到顶部（back-width-html）</div>
-    <div id="back-with-body" class="back-btn">回到顶部（back-width-body）</div>
-    <div id="back-with-document" class="back-btn">回到顶部（back-width-document）</div>
-    <div id="back-with-window" class="back-btn">回到顶部（back-width-window）</div>
-    <div id="back-with-animate" class="back-btn">回到顶部（back-with-animate）</div>
-  </div>
-  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>Overseas2cn Layout （代码全部在 overseas 上才可使用此 template）</title>
+  <meta name="keywords" content="一加手机，一加5，一加手机5， OnePlus 5，3T，一加3，一加2，一加金耳，1+，1+手机，一加科技，一加手机官"/>
+  <meta name="description" content="一加手机是一加科技推出的不将就、高品质一加智能4G手机，装配氢OS系统；1+手机官网提供正品一加手机5、一加手机3T/3、一加手机2、一加银耳2,、一加金耳等，品质保证，欢迎在线咨询购买。"/>
+  <!--[if lte IE 9]>
+  <script>if(location.pathname != "/upgrade/browser")location.href="https://wwwtest32.oneplus.com/cn/upgrade/browser";</script>
+  <![endif]-->
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="full-screen" content="no">
+  <meta name="x5-fullscreen" content="true">
+  <meta name="x5-page-mode" content="app">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="renderer" content="webkit">
+  <meta name="referrer" content="always">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  
   <script>
-    window.onload = function() {
-      var count = 0;
-      var countDom = document.getElementById('count');
+    window.op=window.op||{};window.op.initTime=new Date();
+    document.documentElement.className +=  op.isMobile ? ' mobile ' : ' pc ';
+  </script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://staticstest32.oneplus.cn/img/oneplus.ico?20180921215439">
+  <link href="https://staticstest32.oneplus.cn/ov/assets/styles/vendor.css" rel="stylesheet">
+  <link href="https://staticstest32.oneplus.cn/ov/18801-explore/cn/index.css?20180921215439" rel="stylesheet">
+</head>
+<body class="hide-body">
+<!--<img src="https://staticstest32.oneplus.cn/v2/img/oneplus3t/weixin.jpg?20180921215439" style="position:absolute;top: -5000px; width: 100px; height: 100px; overflow: hidden;" alt="">-->
 
-      var lastScrollTop = 0;
-      var navDom = document.getElementById('nav');
-      var offsetTop = navDom.offsetTop - $('#count').outerHeight();
-      var targetDom = navDom.querySelector('.nav-list');
-      var wrapper = document.getElementById('wrapper');
+  <div class="oneplus-store-cn">
+    <input type="hidden" id="_india_host" value="https://wwwtest32.oneplus.in">
+    <input type="hidden" id="_net_host" value="https://wwwtest32.oneplus.com">
+    <input type="hidden" id="_cn_host" value="https://wwwtest32.oneplus.com/cn">
+    <input id="mark-currency-format" type="hidden" value="%7B%22pattern%22%3A%22%C2%A5%25s%22%2C%22precision%22%3A2%2C%22requiredPrecision%22%3A2%2C%22decimalSymbol%22%3A%22.%22%2C%22groupSymbol%22%3A%22%2C%22%2C%22groupLength%22%3A3%2C%22integerRequired%22%3A1%7D">
+    <input type="hidden" name="api-sign-in" id="api-sign-in" value="https://accounttest32.oneplus.com/cn/login">
+    <input type="hidden" name="link-sign-in" id="link-sign-in" value="https://accounttest32.oneplus.com/cn/login">
+    <input type="hidden" name="link-user-center" id="link-user-center" value="https://wwwtest32.oneplus.com/cn/customer/info">
+    <input type="hidden" name="link-home" id="link-home" value="https://wwwtest32.oneplus.com/cn">
+    <input type="hidden" name="mark-current-store" id="mark-current-store" value="cn">
+    <input type="hidden" name="bag-cart-products" id="bag-cart-products" value="https://storetest32.oneplus.com/cn/cart/query">
 
-      window.onscroll = function() {
-        var pageScroll = $(window).scrollTop();
-        var delta = pageScroll - lastScrollTop; 
-        var html = '';
-
-        count ++;
-        html += 'count: ' + count + ', ';
-        html += 'offsetTop' + offsetTop + ', ';
-        html += 'htmlPageScroll: ' + $('html').scrollTop() + ', ';
-        html += 'bodyPageScroll: ' + $('body').scrollTop() + ', ';
-        html += 'documentPageScroll: ' + $(document).scrollTop() + ', ';
-        html += 'windowPageScroll: ' + $(window).scrollTop() + ', ';
-        countDom.innerHTML = html;
-
-        fixedNav(delta, pageScroll, function() {
-          lastScrollTop = pageScroll;
-        });
-      };
-
-      function fixedNav(delta, pageScroll, callback) {
-        if (delta >= 0 && pageScroll >= offsetTop) {
-          // 页面下滚
-          targetDom.classList.add('fixed');
-        } else if (delta <= 0 && pageScroll <= offsetTop) {
-          // 页面上滚
-          targetDom.classList.remove('fixed');
+    <input type="hidden" name="verify-oneplusid-url" id="verify-oneplusid-url" value="https://accounttest32.oneplus.com/cn/isLogin" />
+    <input type="hidden" name="aliverify-js" id="aliverify-js" value="https://g.alicdn.com/sd/ncpc/nc.js"/>
+    <input type="hidden" name="aliverify-link" id="aliverify-link" value="https://g.alicdn.com/sd/ncpc/nc.css"/>
+    <input type="hidden" name="aliverify-url" id="aliverify-url" value="https://accounttest32.oneplus.com/cn/getAliyunAppKey"/>
+    <input type="hidden" name="one-cn-login-sign-in-url" id="one-cn-login-sign-in-url" value="https://accounttest32.oneplus.com/cn/onepluslogin">
+    <input type="hidden" name="one-cn-login-send-bind-code" id="one-cn-login-send-bind-code" value="https://accounttest32.oneplus.com/cn/code/get/bind">
+    <input type="hidden" name="one-cn-login-login-bind-url" id="one-cn-login-login-bind-url" value="https://accounttest32.oneplus.com/cn/login/bind">
+    <input type="hidden" name="one-cn-login-bind-oneplus-account" id="one-cn-login-bind-oneplus-account" value="https://accounttest32.oneplus.com/cn/unionlogin/bind/user">
+    <input type="hidden" name="one-cn-login-send-bind-code-third" id="one-cn-login-send-bind-code-third" value="https://accounttest32.oneplus.com/cn/code/get/register/union">
+    <input type="hidden" name="one-cn-login-login-bind-url-third" id="one-cn-login-login-bind-url-third" value="https://accounttest32.oneplus.com/cn/unionlogin/bind/mobile">
+    <input type="hidden" name="one-cn-login-account-register-url-third" id="one-cn-login-account-register-url-third" value="https://accounttest32.oneplus.com/cn/unionlogin/register">
+    <input type="hidden" name="one-cn-login-verify-code-third" id="one-cn-login-verify-code-third" value="https://accounttest32.oneplus.com/cn/code/verify/register/union"/>
+    <script>
+        var oneCnLoginMobileRulesList=[{"reg":/^1\d{10}$/}];
+    </script>
+      
+    <script type="application/json" id="one-cn-login-data-translation">
+    {
+        "signUpTitle":"登录",
+        "loginSubmitVal": "确定",
+        "emailErrorTip":"请输入您的登录账号",
+        "emailEmptyErrorTip":"请输入您的登录账号",
+        "pwdErrorTip":"密码错误",
+        "pwdFormatErrorTip": "密码长度为6-16位",
+        "pwdEmptyErrorTip":"请输入您的登录密码",
+        "setPwdErrorTip":"请设置登录密码",
+        "aliverifyErrorTip": "请滑动验证码完成安全验证",
+        "loginLink":"https://accounttest32.oneplus.com/cn/login",
+        "qqUrl":"https://accounttest32.oneplus.com/cn/qqlogin",
+        "weixinUrl":"https://accounttest32.oneplus.com/cn/wxlogin",
+        "weiboUrl":"https://accounttest32.oneplus.com/cn/wblogin",
+        "forgotLink":"https://accounttest32.oneplus.com/cn/forget",
+        "signUpLink":"https://accounttest32.oneplus.com/cn/regist",
+        "agreementLink": "https://accounttest32.oneplus.com/cn/agreement",
+        "countdownTimes": 120,
+        "sendVerifyCodeSuccess": "发送成功",
+        "sendVerifyCodefaild": "发送失败",
+        "bindMobileSuccess": "绑定成功",
+        "signInTips":"选择其它方式登录",
+        "loginSuccessTips": "登录成功",
+        "loginTimeoutTips": "页面已过期",
+        "requestErrorTip":"请求失败，请稍后再尝试",
+        "defaultUrl":"https://accounttest32.oneplus.com/cn",
+        "format":{
+        "dd":"days",
+        "hh": "hour",
+        "mm": "min",
+        "ss": "s"
+        },
+        "passwordRulesTips":{
+        "lengthRule":"6 ～16 位字符",
+        "letterRule":"包含字母",
+        "numberRule":"包含数字"
+        },
+        "binding":{
+        "newPhoneText":"为了账户的安全及正常使用，请绑定你的手机号码。",
+        "sendText":"s后重新发送",
+        "nextText": "下一步",
+        "sendAgainText":"重新发送",
+        "confirmText":"确定",
+        "verifyText":"发送验证码",
+        "phonePre":"+86",
+        "phoneErrorTip":"请输入正确的手机号码",
+        "phoneEmptyErrorTip":"请输入您的手机号码",
+        "pwdErrorTip":"Password does not meet minimal requirements.",
+        "patternPwdErrorTip":"Password does not meet minimal requirements.",
+        "codeTips":"请输入验证码",
+        "comfirmCodeNotExistTip":"Your verification code was entered incorrectly.",
+        "comfirmCodeExpiredTip":"The confirmation code has expired.",
+        "phonePlaceHolderText":"手机号",
+        "networkError":"Network Error",
+        "successMsg":"success",
+        "bindingInfo":"注册一加，即表示你同意一加的",
+        "bindMobileInfo": "绑定手机号，即表示你同意一加的",
+        "bindingLink":"https://wwwtest32.oneplus.com/cn",
+        "bindingLinkInfo":"用户协议",
+        "bindingOneInfo": "已经有一加账号？",
+        "bindingOneLinkInfo": "绑定你的一加账号"
         }
-        callback && callback();
+    }
+    </script>
+      
+      <script type="application/json" id="one-cn-login-data-email-list">
+         ["@qq.com","@163.com","@126.com","@sina.com","@hotmail.com","@sohu.com","@foxmail.com","@yeah.net","@vip.qq.com","@gmail.com","@hotmail.com","@yahoo.com","@outlook.com","@yahoo.co.in","@googlemail.com","@web.de","@gmx.de","@live.com","@rediffmail.com","@hotmail.co.uk","@hotmail.fr","@yahoo.in","@hotmail.it","@ymail.com","@msn.com","@yahoo.co.uk","@mail.ru","@aol.com","@139.com","@hggame.com","@love11.com","@buston.cn","@kcidc.com","@sfba.cn","@hensao.com","@tour0.com","@ytgame.com","@pay55.com","@oneplus.net","@oneplus.cn"]
+      </script>
+
+
+    <div id="page-header">
+    <bar-store-confirm></bar-store-confirm>
+    
+    <header id="header">
+      <div class="container-infinite overflow-visible top-header">
+        <nav class="nav container-text">
+          <ul class="nav-left" :class="{'search-collapsed': header.topnavsCollapsed}">
+            <li class="icon brand">
+              <a href="https://wwwtest32.oneplus.com/cn" class="ico-wrapper"><i class="ico ico-brand"></i></a>
+            </li>
+            <li class="icon show-menu">
+              <a class="ico-wrapper as-show-menu" :class="{'collapsed': header.menuCollapsed}" href="" id="store-nav"
+                data-target="#nav-pages-slide" 
+                data-trigger="#store-nav" 
+                @click.prevent="toggleHeaderNavSlide">
+              <i class="icon-show-menu"></i>
+              </a>
+            </li>
+          </ul>
+          <ul class="nav-pages" :class="{'collapsed': header.topnavsCollapsed}" id="nav-pages-slide">
+            <li class="user-brief-info"  v-if="user.signedIn">
+              <a class="info" :href="'https://mytest32.oneplus.com/cn/mIndex?' + new Date().getTime()">你好， {{user.name}} 
+              <span v-if="user.avatar" class="user-avatar"><img  class="user-avatar" :src="user.avatar" alt="User avatar"></span>
+              <span v-else class="avatar-placeholder"><img src="https://image01.oneplus.cn/shop/201803/26/481/bd61b3ac28d9989b164a89707fb0235e.png" alt="Avatar placeholder"></span></a>
+            </li>
+            <li class="user-brief-info"  v-else>
+              <a class="info" :href="'https://accounttest32.oneplus.com/cn/login?jump=' + url">欢迎访问一加官网，请<span class="text-blue">登录</span></a>
+            </li>
+            <li class="page"><a href="https://wwwtest32.oneplus.com/cn/6">OnePlus 6</a></li>
+            <li class="page"><a href="https://storetest32.oneplus.com/cn" onclick="_opq.push(['trackEvent','opcn_T102','商城'])">商城</a></li>
+            <li class="page"><a href="https://servicetest32.oneplus.com/cn" onclick="_opq.push(['trackEvent','opcn_T103','服务'])">服务</a></li>
+            <li class="page"><a href="https://prtest32.oneplus.com/cn" onclick="_opq.push(['trackEvent','opcn_T105','博客'])">博客</a></li>
+            <li class="page"><a href="http://www.test32.oneplusbbs.com" onclick="_opq.push(['trackEvent','opcn_T104','论坛'])" target="_blank">论坛</a></li>
+          </ul>
+          <ul class="nav-right" :class="{'on-search': header.onSearch}">
+            <li class="icon sign-in">
+              <a class="user-account" id="show-user-info" :href="user.signedIn ? 'https://mytest32.oneplus.com/cn/order' : 'https://accounttest32.oneplus.com/cn/login?jump=' + url" ><i v-if="user.signedIn && user.avatar" class="user-avatar"><img :src="clipImage(user.avatar, '40x40')" :srcset="clipImage(user.avatar, '40x40') + ' 1x,' + clipImage(user.avatar, '80x80') + ' 2x'" alt="Avatar"></i><i v-else class="ico ico-user"></i></a>
+              <div class="user-info" :class="{'collapsed': header.userInfoCollapsed}" id="user-info">
+                <nav class="user-info-nav signed-in">
+                  <ul class="nav-links">
+                    <li class="nav-link with-separator">
+                      <a class="link" 
+                        :href="user.signedIn ? 'https://mytest32.oneplus.com/cn/order' : 'https://accounttest32.oneplus.com/cn/login?jump='+encodeURIComponent('https://mytest32.oneplus.com/cn/order')+'&channel=1'">订单</a>
+                    </li>
+                    <li class="nav-link with-separator">
+                      <a class="link to-dashboard" 
+                        :href="user.signedIn ? 'https://mytest32.oneplus.com/cn/mIndex?' + new Date().getTime() : 'https://accounttest32.oneplus.com/cn/login?jump='+encodeURIComponent('https://mytest32.oneplus.com/cn/mIndex?' + new Date().getTime())+'&channel=1'">账户</a>
+                      <a class="link to-info" 
+                        :href="user.signedIn ? 'https://accounttest32.oneplus.com/cn' : 'https://accounttest32.oneplus.com/cn/login?jump='+encodeURIComponent('https://accounttest32.oneplus.com/cn')+'&channel=1'">账户</a>
+                    </li>
+                    <li class="nav-link with-separator">
+                      <a class="link" :href="user.signedIn ? 'https://wwwtest32.oneplus.com/cn/referral' : 'https://accounttest32.oneplus.com/cn/login?jump='+encodeURIComponent('https://wwwtest32.oneplus.com/cn/referral')+'&channel=1'">推荐有礼</a>
+                    </li>
+                    <li v-if="user.signedIn" class="nav-link nav-sign">
+                      <a class="link link-sign" href="https://accounttest32.oneplus.com/cn/logout">登出 {{user.name}}</a>
+                    </li>
+                    <li v-else class="nav-link nav-sign">
+                      <span class="link">
+                      <a :href="'https://accounttest32.oneplus.com/cn/login?jump=' + url" class="link-sign">登录</a>
+                      </span>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </li>
+            <li class="icon shop-basket" @mouseleave="collapseBasketPanel">
+              <a class="as-show-basket-info show-basket-info" 
+                @mouseenter="fetchCartInfo"
+                id="show-basket-info" href="https://storetest32.oneplus.com/cn/cart"><i class="ico ico-bag show-number"></i></a>
+              <a class="as-show-basket-info show-basket-info-xs" 
+                :class="{'collapsed': header.basketCollapsed}" 
+                @click.prevent="toggleBasketPanel" id="show-basket-info-xs" 
+                data-target="#basket-info"
+                data-trigger="#show-basket-info-xs"
+                href="javascript:;"><i class="ico ico-bag show-number"></i></a>
+              <div class="basket-info" :class="{'collapsed': header.basketCollapsed}" id="basket-info">
+                <nav class="basket-info-nav signed-in">
+                  <div class="cart-items-placeholder" v-if="cart.loading"></div>
+                  <ul class="cart-products" v-if="cart.cartGoods && cart.cartGoods.length && !cart.loading">
+                    <li v-for="(item,index) in cart.cartGoods" class="products-link">
+                      <a href="https://storetest32.oneplus.com/cn/cart">
+                        <span class="cart-item-tr">
+                          <span class="cart-item-td td-image">
+                          <span class="image-placeholder">
+                          <img :src="clipImage(item.imageUrl, '80x80')" :srcset="clipImage(item.imageUrl, '160x160') + ' 1x,' + clipImage(item.imageUrl, '80x80') + ' 2x'" :alt="item.displayName" :srcset="item.imageUrl+ ' 1x,' + item.imageUrl+ ' 2x'">
+                          </span>
+                          </span>
+                          <span class="cart-item-td td-name">
+                            <span class="cart-item-tr">
+                              <span class="cart-item-td item-name">
+                                <p class="text-black p-">{{item.displayName}}</p>
+                              </span>
+                            </span>
+                            <span class="cart-item-tr no-wrap">
+                              <span class="cart-item-td">
+                                <p class="text-black p-">{{formatCurrency(item.nowPrice)}}</p>
+                              </span>
+                              <span class="cart-item-td">
+                                <p class="text-black p- text-right">x {{item.qty}}</p>
+                              </span>
+                            </span>
+                          </span>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div v-if="cart.cartGoods && !cart.cartGoods.length && !cart.loading" class="cart-no-products">
+                    <div class="text-container">
+                      <p v-if="!cart.showError">您的购物车里没有商品！</p>
+                      <p v-if="cart.showError">糟糕，可能出错了，去看看</p>
+                    </div>
+                  </div>
+                  <ul class="cart-info">
+                    <li class="cart-link">
+                      <one-button class="full-width" ref="bagLink" v-if="!cart.showError && cart.cartGoods && !cart.cartGoods.length" type="link" href="https://storetest32.oneplus.com/cn">去购物</one-button>
+                      <one-button class="full-width" ref="bagLink" v-if="!cart.showError && cart.cartGoods && cart.cartGoods.length && cart.goodsRemain <= 0" type="link" href="https://storetest32.oneplus.com/cn/cart">查看我的购物车</one-button>
+                      <one-button class="full-width" ref="bagLink" v-if="!cart.showError && cart.cartGoods && cart.cartGoods.length && cart.goodsRemain > 0" type="link" href="https://storetest32.oneplus.com/cn/cart">去购物车查看更多</one-button>
+                      <one-button class="full-width" ref="bagLink" v-if="cart.showError" type="link" href="https://storetest32.oneplus.com/cn/cart">查看我的购物车</one-button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </li>
+            <li class="icon search">
+              <a href="" class="search-everything" id="search-everything" @click.prevent="showSearch">
+                <i class="ico ico-search"></i>
+              </a>
+            </li>
+          </ul>
+          <div class="header-search-wrap" :class="{'on-search': header.onSearch}">
+            <button @click.prevent="blurSearch" class="blur-search-trigger" :class="{'collapsed': header.topnavsCollapsed}"></button>
+            <form ref="headerSearchForm" 
+              @submit.prevent="submitSearch" 
+              action="https://searchtest32.oneplus.com/cn/s" 
+              post="get" 
+              id="header-search-form" 
+              class="header-search-form">
+              <fieldset class="header-search-fieldset">
+                <label @click="submitSearch" for="header-search" class="search-icon-wrapper"><i class="ico ico-search"></i></label>
+                <input @focus="focusSearch" v-model="header.searchKeyword" tab="80" id="header-search" type="text" placeholder="搜索商品名称">
+                <label for="header-search" class="quit-search-trigger" @click.prevent="quitSearch"></label>
+              </fieldset>
+            </form>
+            <ul class="header-search-result">
+              <li class="result-entry"><a class="link" href="https://storetest32.oneplus.com/cn/product/oneplus-bullets-wireless" onclick="_opq.push(['trackEvent','1','一加云耳'])">一加云耳</a></li>
+              <li class="result-entry"><a class="link" href="https://storetest32.oneplus.com/cn/product/oneplus-6-bumper-case" onclick="_opq.push(['trackEvent','2','OnePlus 6 尼龙全包保护壳'])">OnePlus 6 尼龙全包保护壳</a></li>
+              <li class="result-entry"><a class="link" href="https://storetest32.oneplus.com/cn/product/oneplus-6-3d-tempered-glass-screen" onclick="_opq.push(['trackEvent','3','OnePlus 6 3D 钢化玻璃保护膜'])">OnePlus 6 3D 钢化玻璃保护膜</a></li>
+              <li class="result-entry"><a class="link" href="https://storetest32.oneplus.com/cn/product/oneplus-6-protective-case" onclick="_opq.push(['trackEvent','4','OnePlus 6 芳纶纤维保护壳'])">OnePlus 6 芳纶纤维保护壳</a></li>
+              <li class="result-entry"><a class="link" href="https://storetest32.oneplus.com/cn/product/oneplus-6-protective-case" onclick="_opq.push(['trackEvent','5','OnePlus 6 砂岩黑保护壳'])">OnePlus 6 砂岩黑保护壳</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <one-dialog no-padding ref="chooseStore">
+      <choose-store></choose-store>
+    </one-dialog>
+
+    <one-dialog ref="errMsg" class-name="err-msg">{{errMsg}}</one-dialog>
+
+    <sign-in-toast>
+      <span slot="text">欢迎访问一加官网 <br>& 登录</span>
+    </sign-in-toast>
+
+    <!-- <one-dialog ref="transformLoginDialog">
+        <sign-in-cn is-popup="true" v-if="loginDialogFlag"></sign-in-cn>
+    </one-dialog> -->
+
+    </div>
+
+  </div>
+
+  
+<main class="explore-container one-font-regular" role="main" id="explore-container">
+  <!-- KV+视频区 -->
+  <section class="explore-content explore-kv-video">
+    <template v-if="isCN">
+      <div v-if="isXs" class="kv-wrap cn"></div>
+      <video v-else autoplay loop muted
+        class="video-wrap" 
+        poster="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/kv/pc/CN.jpg"
+        src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/kv/pc/CN.mp4"></video>
+    </template>
+    <template v-else>
+      <div v-if="isXs" class="kv-wrap"></div>
+      <video v-else autoplay loop muted
+        class="video-wrap" 
+        poster="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/kv/pc/EU_NA.jpg"
+        src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/kv/pc/EU_NA.mp4"></video>
+    </template>
+
+    <div class="mask" :class="{animated: kvAnimated}">
+      <div class="title-wrap">
+        <h3 class="title ant1">Never Settle, OnePlus.</h3>
+        <p class="subtitle ant2">OnePlus 的初衷，就是以善解人意的设计，平等和有情谊的沟通，将跨越地域、文化与信仰的产品，分享给全球用户。这个初衷，至今不渝</p>
+      </div>
+      <div class="media-wrap ant3">
+        <i class="media-icon" @click="clickShowVideo('kvVideo')"></i>
+        <a href="javascript:void(0);" class="video-link" @click="clickShowVideo('kvVideo')">观看视频</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 菜单 -->
+  <section id="explore-tab" class="explore-content explore-tab-list">
+    <div id="explore-tab-list" 
+      class="tab-list" 
+      :class="{fixed: isFixedNav, hide: hideNav}">
+      <div class="tab-item" v-for="(item, index) in tabList">
+        <a class="anchor" 
+          :class="{active: index === activeTabIndex}" :data-tagid="'tag-' + index">{{item}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌故事 -->
+  <section id="explore-brand-story" data-tag="tag-0" class="explore-content explore-brand-story">
+    <div class="brand-story-list-wrap">
+      <div id="brand-story-list" class="brand-story-list" :class="{'no-animated': isAnimating}">
+        <div class="brand-story-item"
+          v-for="(story, storyIndex) in detailBrandStoryList"
+          @click="expandStoryInPC(storyIndex)">
+          <div class="pic-wrap"></div>
+
+          <div class="mask"></div>
+          
+          <div class="back-btn-wrap"
+            @click.stop="goBack">
+            <i class="triangle-icon"></i>
+            <a class="back-btn" href="javascript:void(0);">返回</a>
+          </div>
+
+          <div class="year-list">
+            <div class="prev-year-wrap" 
+              v-if="storyIndex != 0" 
+              @click="goToYear(storyIndex, 'prev')">{{baseYear + storyIndex - 1}}</div>
+            <div class="year-wrap">{{baseYear + storyIndex}}</div>
+
+            <template>
+              <!-- 手机端显示最后一个年份，可跳转至第一年 -->
+              <div class="next-year-wrap" 
+              v-if="isSmallDevice && storyIndex == detailBrandStoryList.length - 1" 
+              @click="goToYear(storyIndex, 'prev')">{{baseYear}}</div>
+            </template>
+            <template>
+              <div class="next-year-wrap" 
+                v-if="storyIndex != detailBrandStoryList.length - 1" 
+                @click="goToYear(storyIndex, 'next')">{{baseYear + storyIndex + 1}}</div>
+            </template>
+          </div>
+
+          <div class="content-wrap">
+            <p class="date">{{story.data[storyData[storyIndex].activeIndex].date}}</p>
+            <p class="title" v-html="story.data[storyData[storyIndex].activeIndex].title"></p>
+            <p class="subtitle">{{story.data[storyData[storyIndex].activeIndex].subtitle}}</p>
+            <!-- 为避免在手机端误操作，展开详情需点Learn more -->
+            <div class="more-link-wrap" @click="expandStoryInMobile(storyIndex)">
+              <i class="triangle-icon"></i>
+              <span class="more-text">了解更多</span>
+            </div>
+          </div>
+
+          <!-- 时间线 -->
+          <div class="line-wrap">
+            <div class="line-default"></div>
+            <div class="line-progress"
+              :class="{
+                animated: storyData[storyIndex].animated,
+                'animated-fast': isTnterrupted
+              }"
+              :style="{width: storyData[storyIndex].progressWidth + '%'}"></div>
+            <div class="month-list">
+              <span class="month-item"
+                v-for="(item, index) in story.data"
+                :style="{width: lineDiff + '%'}">
+
+                <span class="month"
+                  :class="{active: storyData[storyIndex].activeIndex != null && storyData[storyIndex].activeIndex >= index}">
+                  <i class="dot"></i>
+
+                  <template v-if="index === 0 || item.month !== story.data[index-1].month">
+                    <span class="text" @click="goToMonth(index)">{{item.month}}</span>
+                  </template>
+                  <template v-else>
+                    <span class="text" @click="goToMonth(index)">&nbsp;&nbsp;</span>
+                  </template>
+                </span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- co-brandings楼层 -->
+  <section id="explore-co-brandings" data-tag="tag-1" class="explore-content explore-co-brandings">
+    <div class="swiper-container swiper-container-co-brandings">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" v-for="item in cobrandings">
+          <div class="co-brandings-wrap">
+            <div class="content-wrap">
+              <p class="date">{{item.date}}</p>
+              <h4 class="title">{{item.title}}</h4>
+              <p class="content">{{item.subtitle}}</p>
+            </div>
+            
+            <ul class="brand-list">
+              <li class="brand-item">
+                <img class="pic" :src="'https://staticstest32.oneplus.cn' + '/ov' + item.logoOne">
+              </li>
+              <li class="brand-item line"></li>
+              <li class="brand-item">
+                <img class="pic" :src="'https://staticstest32.oneplus.cn' + '/ov' + item.logoTwo">
+              </li>
+            </ul>
+
+            <div class="pic-wrap">
+              <img v-if="isXs" 
+                class="pic swiper-lazy" 
+                :data-src="'https://staticstest32.oneplus.cn' + '/ov' + item.mobilePic">
+              <img v-else 
+                class="pic swiper-lazy" 
+                :data-src="'https://staticstest32.oneplus.cn' + '/ov' + item.pcPic">
+              
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="brandings-swiper-pagination"></div>
+    </div>
+
+  </section>
+
+  <!-- 公司荣誉 -->
+  <section id="explore-honor" data-tag="tag-2" class="explore-content explore-honor">
+    <div class="swiper-container swiper-container-honor">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="pic-wrap">
+            <img v-if="isXs" class="pic" src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/video/mobile/CN/2.jpg">
+            <img v-else class="pic" src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/video/pc/CN/2.jpg">
+          </div>
+          <div class="content">
+            <p>OnePlus Pop-up 全球活动</p>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="pic-wrap">
+            <img v-if="isXs" class="pic" src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/video/mobile/CN/1.jpg">
+            <img v-else class="pic" src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/video/pc/CN/1.jpg">
+          </div>
+          <div class="content">
+            <p>加油故事</p>
+          </div>
+        </div>
+      </div>
+      <div class="honor-swiper-pagination"></div>
+    </div>
+
+    <div class="media-btn-wrap">
+      <div class="media-btn" :class="{active: honorSliderRealIndex == 0}" @click="clickShowHonnorVideo(0)"></div>
+      <div class="media-btn" :class="{active: honorSliderRealIndex == 1}" @click="clickShowHonnorVideo(1)"></div>
+    </div>
+  </section>
+
+  <!-- 近期文章 -->
+  <section id="explore-article" data-tag="tag-3" class="explore-content explore-article">
+    <div class="article-content-wrap">
+      <h3 class="main-title">OnePlus 新闻</h3>
+
+      <ul class="article-list">
+        <li class="article-item">
+          <div class="pic-wrap">
+            <a class="link" target="_blank" href="https://pr.oneplus.com/cn/news/2018/honors">
+              <img class="pic" src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/article/article-0.jpg">
+            </a>
+          </div>
+
+          <div class="content-wrap">
+            <h4 class="title">
+              <a class="link" target="_blank" href="https://pr.oneplus.com/cn/news/2018/honors">OnePlus 斩获三项金奖，用户满意度第一</a>
+            </h4>
+            <p class="info">
+              <a class="link" target="_blank"
+                href="https://pr.oneplus.com/cn/news/2018/honors">金杯银杯，不如用户口碑。专注旗舰，坚持品质，相信好产品，就是最好的代言！</a>
+            </p>
+            <p class="more-link">
+              <a class="link" target="_blank" href="https://pr.oneplus.com/cn/news/2018/honors">阅读全文</a>
+            </p>
+          </div>
+        </li>
+
+        <li class="article-item">
+          <div class="pic-wrap">
+            <a class="link" target="_blank" href="https://pr.oneplus.com/cn/news/2018/oneplus-indian-premium-segment-q2-2018">
+              <img class="pic" src="https://staticstest32.oneplus.cn/ov/assets/images/18801-explore/article/article-1.jpg">
+            </a>
+          </div>
+
+          <div class="content-wrap">
+            <h4 class="title">
+              <a class="link" target="_blank" href="https://pr.oneplus.com/cn/news/2018/oneplus-indian-premium-segment-q2-2018">喜提第一，OnePlus 在印度高端手机市场表现惊艳</a>
+            </h4>
+            <p class="info">
+              <a class="link" target="_blank"
+                href="https://pr.oneplus.com/cn/news/2018/oneplus-indian-premium-segment-q2-2018">继在首销仅 22 天全球销量即告突破 100 万台后，今天，OnePlus 再一次创造了新纪录。</a>
+            </p>
+            <p class="more-link">
+              <a class="link" target="_blank" href="https://pr.oneplus.com/cn/news/2018/oneplus-indian-premium-segment-q2-2018">阅读全文</a>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 近期活动 -->
+  <section id="explore-activity" data-tag="tag-4" class="explore-content explore-activity">
+    <div class="activity-content-wrap">
+      <h3 class="main-title">近期活动</h3>
+
+      <ul class="activity-list">
+        <li class="activity-item" v-for="item in actList">
+          <div class="pic-wrap">
+            <a class="link" :href="item.link">
+              <img class="pic" :src="'https://staticstest32.oneplus.cn' + '/ov' + item.pic">
+            </a>
+          </div>
+
+          <div class="content-wrap">
+            <h4 class="title">
+              <a class="link" :href="item.link">{{item.title}}</a>
+            </h4>
+            <p class="info">
+              <a class="link" :href="item.link">{{item.subtitle}}</a>
+            </p>
+            <p v-if="!isXs" class="more-link">
+              <a class="link" :href="item.link">Learn more</a>
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 其余入口 -->
+  <section id="explore-extra-entry" class="explore-content explore-extra-entry">
+    <div class="extra-entry-wrap">
+      <ul class="entry-list">
+        <li class="entry-item">
+          <div class="entry-title">博客</div>
+          <div class="more-link">
+            <a class="link" href="https://pr.oneplus.com/cn">了解更多</a>
+          </div>
+        </li>
+        <li class="entry-item">
+          <div class="entry-title">加入一加</div>
+          <div class="more-link">
+            <a class="link" href="http://career.oneplus.cn">了解更多</a>
+          </div>
+        </li>
+        <li class="entry-item">
+          <div class="entry-title">联系我们</div>
+          <div class="more-link">
+            <a class="link" href="https://oneplus.net/support">了解更多</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <one-youku-player v-if="isCN" :options="videoOptions" ref="player" ready></one-youku-player>
+  <one-player v-else :options="videoOptions" ref="player" ready></one-player>
+</main>
+
+<!-- 视频配置 -->
+<script>
+  var VIDEO_SOURCE = {
+    kvVideo: {
+      cn: 'XMzgwNTE1NDUyMA',
+      en: 'Sh41Uq3huAI'
+    },
+    honorVideo: [{
+      cn: 'XMzYyNjA4ODU1Mg',
+      en: '2dFogyLQzEY'
+    }, {
+      cn: 'XMzE1OTQzNjEyOA',
+      en: 'ht_cDhe_4x8'
+    }]
+  };
+  var GLOBAL_PARAMS = {
+    storyShowTime: 5000,
+    tabList: ["大事迹", "品牌联合", "视频", "新闻", "活动"],
+    cobrandings: [{
+      date: "2018.05",
+      title: "OnePlus 6 漫威复仇者联盟限量版",
+      subtitle: "10 年漫威，早在无数人心中，打下了英雄的烙印。OnePlus 6 漫威复仇者联盟限量版，以全速旗舰，致敬我们喜爱的漫威英雄。",
+      logoOne: "/assets/images/18801-explore/co-brandings/oneplus-logo.png",
+      logoTwo: "/assets/images/18801-explore/co-brandings/avengers.png",
+      mobilePic: "/assets/images/18801-explore/co-brandings/mobile/avengers.jpg",
+      pcPic: "/assets/images/18801-explore/co-brandings/pc/avengers.jpg"
+    }, {
+      date: "2017.12",
+      title: "OnePlus 5T StarWar 砂岩白限量版（印度、北欧）",
+      subtitle: "它是科幻电影的开山鼻祖，影响了世界无数的科幻迷。如今，StarWar 再开先河，与 OnePlus 一起，共同为“星战迷”献上惊艳之作。",
+      logoOne: "/assets/images/18801-explore/co-brandings/oneplus-logo.png",
+      logoTwo: "/assets/images/18801-explore/co-brandings/starwars.png",
+      mobilePic: "/assets/images/18801-explore/co-brandings/mobile/starwars.jpg",
+      pcPic: "/assets/images/18801-explore/co-brandings/pc/starwars.jpg"
+    }, {
+      date: "2017.09",
+      title: "OnePlus 5 JCC+ 定制版",
+      subtitle: "Jean-Charles de Castelbajac 是世界知名的法国艺术大师，曾被纽约时报誉为“反流行教父”。此次联名，是一次科技与艺术的美妙结合。",
+      logoOne: "/assets/images/18801-explore/co-brandings/oneplus-logo.png",
+      logoTwo: "/assets/images/18801-explore/co-brandings/jcc.png",
+      mobilePic: "/assets/images/18801-explore/co-brandings/mobile/jcc.jpg",
+      pcPic: "/assets/images/18801-explore/co-brandings/pc/jcc.jpg"
+    }, {
+      date: "2017.02",
+      title: "OnePlus 3T colette 20 周年定制版",
+      subtitle: "colette 是巴黎乃至于全世界的流行指标，在 colette 20 周年，两个品牌再一次跨越科技与时尚的边界，联名推出纪念之作。",
+      logoOne: "/assets/images/18801-explore/co-brandings/oneplus-logo.png",
+      logoTwo: "/assets/images/18801-explore/co-brandings/colette.png",
+      mobilePic: "/assets/images/18801-explore/co-brandings/mobile/colette.jpg",
+      pcPic: "/assets/images/18801-explore/co-brandings/pc/colette.jpg"
+    }, {
+      date: "2015.08",
+      title: "OnePlus 2 ONE 限量版",
+      subtitle: "复杂世界里，一个就够了。OnePlus 2 与 ONE·一个 App 携手，在不那么合拍的世界里，一拍即合。",
+      logoOne: "/assets/images/18801-explore/co-brandings/oneplus-logo.png",
+      logoTwo: "/assets/images/18801-explore/co-brandings/one.png",
+      mobilePic: "/assets/images/18801-explore/co-brandings/mobile/one.jpg",
+      pcPic: "/assets/images/18801-explore/co-brandings/pc/one.jpg"
+    }, {
+      date: "2014.10",
+      title: "OnePlus One JBL 限量版",
+      subtitle: "音响行业品牌 JBL，70 余年声音传承，享誉电声领域。OnePlus 与之携手，强强联“音”，联袂为你而“声”。",
+      logoOne: "/assets/images/18801-explore/co-brandings/oneplus-logo.png",
+      logoTwo: "/assets/images/18801-explore/co-brandings/jbl.png",
+      mobilePic: "/assets/images/18801-explore/co-brandings/mobile/jbl.jpg",
+      pcPic: "/assets/images/18801-explore/co-brandings/pc/jbl.jpg"
+    }]
+  };
+</script>
+
+<!-- 活动内容 -->
+<script type="application/json" id="data-act-list" v-pre>
+{
+  "normalActList": [{
+    "title": "推荐有礼",
+    "subtitle": "你推荐，我送礼。",
+    "link": "http://www.oneplus.cn/referral",
+    "pic": "/assets/images/18801-explore/activity/activity-0.jpg"
+  }, {
+    "title": "以旧换新",
+    "subtitle": "带你的旧机器来，换一部新旗舰走。",
+    "link": "http://cppc.aihuishou.com/oneplus/Activity/ReplaceOldMachine",
+    "pic": "/assets/images/18801-explore/activity/activity-1.jpg"
+  }, {
+    "title": "Shot on OnePlus",
+    "subtitle": "向世界分享你的摄影作品。",
+    "link": "http://photos.oneplus.cn/",
+    "pic": "/assets/images/18801-explore/activity/activity-2.jpg"
+  }],
+  "specialActList": []
+}
+</script>
+
+<!-- 品牌故事内容 -->
+<script type="application/json" id="data-brand-story" v-pre>
+{
+  "detailList": [{
+    "year": 2013,
+    "data": [{
+      "date": "12.17",
+      "month": "12月",
+      "title": "OnePlus 诞生",
+      "subtitle": "全新的品牌，从此开创。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2013/1.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2013/1.jpg"
+    }]
+  }, {
+    "year": 2014,
+    "data": [{
+      "date": "04.23",
+      "month": "4月",
+      "title": "OnePlus One 中国发布",
+      "subtitle": "OnePlus 产品之路，从此起步。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2014/1.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2014/1.jpg"
+    }, {
+      "date": "04.29",
+      "month": "4月",
+      "title": "OnePlus One 美国发布",
+      "subtitle": "一次安静的发布，却是里程碑的一步。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2014/2.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2014/2.jpg"
+    }, {
+      "date": "07.22",
+      "month": "7月",
+      "title": "OnePlus One 竹质版发布",
+      "subtitle": "为冰冷的科技，带来一丝自然的善意。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2014/3.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2014/3.jpg"
+    }, {
+      "date": "09.24",
+      "month": "9月",
+      "title": "银耳发布",
+      "subtitle": "献给耳朵的第一份礼物，从此静享佳音。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2014/4.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2014/4.jpg"
+    }, {
+      "date": "12.02",
+      "month": "12月",
+      "title": "OnePlus One 印度发布",
+      "subtitle": "全新开辟的市场，不将就的新登场。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2014/5.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2014/5.jpg"
+    }]
+  }, {
+    "year": 2015,
+    "data": [{
+      "date": "05.28",
+      "month": "5月",
+      "title": "H<span class='small'>2</span> OS 发布",
+      "subtitle": "做自己的ROM，这不是孤独，是选择。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2015/1.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2015/1.jpg"
+    }, {
+      "date": "07.08",
+      "month": "7月",
+      "title": "OnePlus 2 发布",
+      "subtitle": "旗舰性能搭配不同质感后盖，满足你的个性体验。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2015/2.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2015/2.jpg"
+    }, {
+      "date": "07.28",
+      "month": "7月",
+      "title": "全球 Pop-up 线下体验活动",
+      "subtitle": "全球八大城市线下体验活动，与用户近距离接触。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2015/3.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2015/3.jpg"
+    }, {
+      "date": "10.29",
+      "month": "10月",
+      "title": "OnePlus X 诞生 金耳发布",
+      "subtitle": "小而美的轻旗舰，一鸣惊人的好声音。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2015/4.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2015/4.jpg"
+    }]
+  }, {
+    "year": 2016,
+    "data": [{
+      "date": "06.15",
+      "month": "6月",
+      "title": "OnePlus 3 发布",
+      "subtitle": "300 多天后的呕心沥血之作，一发布便广受关注，获得全球用户的认可。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2016/1.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2016/1.jpg"
+    }, {
+      "date": "06.18",
+      "month": "6月",
+      "title": "京东 618 活动",
+      "subtitle": "京东销售额增幅 375% ，好评度高达 98% 。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2016/2.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2016/2.jpg"
+    }, {
+      "date": "10.02",
+      "month": "10月",
+      "title": "印度官网上线",
+      "subtitle": "印度电商平台正式上线并销售，走出了突破性的一步。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2016/3.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2016/3.jpg"
+    }, {
+      "date": "11.15",
+      "month": "11月",
+      "title": " OnePlus 3T 发布",
+      "subtitle": "性能的迭代升级，旗舰的锦上添花。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2016/4.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2016/4.jpg"
+    }, {
+      "date": "11.29",
+      "month": "11月",
+      "title": "OnePlus 3T 北京亮相",
+      "subtitle": "不负旗舰之名，不负你的体验。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2016/5.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2016/5.jpg"
+    }]
+  }, {
+    "year": 2017,
+    "data": [{
+      "date": "03.21",
+      "month": "3月",
+      "title": "OnePlus 3T colette 20周年纪念版发布",
+      "subtitle": "两个相隔万里的品牌，再一次跨越科技与时尚的边界。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2017/1.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2017/1.jpg"
+    }, {
+      "date": "06.21",
+      "month": "6月",
+      "title": "OnePlus 5 发布",
+      "subtitle": "首次引入双摄，你的照片，从此有了新看法。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2017/2.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2017/2.jpg"
+    }, {
+      "date": "09.19",
+      "month": "9月",
+      "title": "OnePlus 5 JCC+ 特别版发布",
+      "subtitle": "两个品牌，一次科技与艺术的美妙结合。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2017/3.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2017/3.jpg"
+    }, {
+      "date": "11.28",
+      "month": "11月",
+      "title": " OnePlus 5T 北京发布",
+      "subtitle": "开启 OnePlus 全面屏时代",
+      "pcPic": "/assets/images/18801-explore/story/pc/2017/4.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2017/4.jpg"
+    }]
+  }, {
+    "year": 2018,
+    "data": [{
+      "date": "05.17",
+      "month": "5月",
+      "title": "OnePlus 6 发布",
+      "subtitle": "全速旗舰，带领  OnePlus 全面向前。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2018/1.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2018/1.jpg"
+    }, {
+      "date": "05.21",
+      "month": "5月",
+      "title": "全球 Pop-up 线下体验活动",
+      "subtitle": "全球加油线下齐狂欢，遍及亚洲、欧洲、北美 25 个城市。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2018/2.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2018/2.jpg"
+    }, {
+      "date": "06.14",
+      "month": "6月",
+      "title": "销售新纪录",
+      "subtitle": "22 天全球销量破 100 万部，我们心中了不起的一大步。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2018/3.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2018/3.jpg"
+    }, {
+      "date": "06.18",
+      "month": "6月",
+      "title": "京东 618 活动",
+      "subtitle": "3000-4000元价位段销量第一，销售额位列第五。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2018/4.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2018/4.jpg"
+    }, {
+      "date": "07.13",
+      "month": "7月",
+      "title": "印度高端市场 Q2 市场份额第一",
+      "subtitle": "喜提第一，OnePlus 在印度高端手机市场表现惊艳。",
+      "pcPic": "/assets/images/18801-explore/story/pc/2018/5.jpg",
+      "mobilePic": "/assets/images/18801-explore/story/mobile/2018/5.jpg"
+    }]
+  }]
+}
+</script>
+
+  <div id="page-footer">
+    <!-- <section class="our-promises" id="our-promises">
+      <div class="container-text">
+        <div class="margin-2x"></div>
+        <div class="row text-center">
+          <div class="col-xs-6 col-sm-3 col-md-3 badge-container">
+            <figure class="promise-badge text-center">
+              <a href="https://servicetest32.oneplus.com/cn/faq?knowledgeId=A300000227" class="promise-badge-link"><img src="https://image01.oneplus.cn/shop/201804/04/1159/52a72a18413191228de05b965a4f0a5d.png" alt="7天无理由退货" class="badge-figure" target="_blank" onclick="_opq.push(['trackEvent','onepluscn_A92','7天无理由退货'])"></a>
+              <figurecaption class="badge-caption text-gray stretched">7天无理由退货</figurecaption>
+            </figure>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3 badge-container">
+            <figure class="promise-badge text-center">
+              <a href="https://servicetest32.oneplus.com/cn/faq?knowledgeId=A300000228" target="_blank" onclick="_opq.push(['trackEvent','onepluscn_A93','15天退货保障'])" class="promise-badge-link"><img src="https://image01.oneplus.cn/shop/201804/04/703/684f626699a71a011058439c670d0f67.png" alt="15天退货保障" class="badge-figure"></a>
+              <figurecaption class="badge-caption text-gray stretched">15天退货保障</figurecaption>
+            </figure>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3 badge-container">
+            <figure class="promise-badge text-center">
+              <a href="https://servicetest32.oneplus.com/cn/faq?knowledgeId=A300000229" target="_blank" onclick="_opq.push(['trackEvent','onepluscn_A94','30天换货保障'])" class="promise-badge-link"><img src="https://image01.oneplus.cn/shop/201804/04/946/22f2df85592ec0c1894663bff4e308e3.png" alt="30天换货保障" class="badge-figure"></a>
+              <figurecaption class="badge-caption text-gray stretched">30天换货保障</figurecaption>
+            </figure>
+          </div>
+          <div class="col-xs-6 col-sm-3 col-md-3 badge-container">
+            <figure class="promise-badge text-center">
+              <a href="https://servicetest32.oneplus.com/cn/faq?knowledgeId=A100000031" target="_blank" onclick="_opq.push(['trackEvent','onepluscn_A95','99元全场包邮'])" class="promise-badge-link"><img src="https://image01.oneplus.cn/shop/201804/04/1523/2533f3f64fc3a177810195376f1d78b4.png" alt="99元全场包邮" class="badge-figure"></a>
+              <figurecaption class="badge-caption text-gray stretched">99元全场包邮</figurecaption>
+            </figure>
+          </div>
+        </div>
+        <div class="margin-2x"></div>
+      </div>  
+    </section> -->
+    <footer id="footer">
+      <div class="container-text">
+        <div class="footer-nav">
+          <dl>
+            <dt class="nav-trigger collapsed">一加产品<i class="icon-fold"></i></dt>
+            <dd class="nav-slide text-sm">
+              <ul>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/6">OnePlus 6</a>
+                </li>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/5t">OnePlus 5T</a>
+                </li>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/product/oneplus5">OnePlus 5</a>
+                </li>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/product/oneplus3t">OnePlus 3T</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="nav-trigger collapsed">热门活动<i class="icon-fold"></i></dt>
+            <dd class="nav-slide text-sm">
+              <ul>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/referral">推荐有礼</a>
+                </li>
+                <li>
+                  <a href="http://cppc.aihuishou.com/oneplus/Activity/ReplaceOldMachine" target="_blank">以旧换新</a>
+                </li>
+                <li>
+                  <a href="https://photostest32.oneplus.com/cn">Shot on OnePlus</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="nav-trigger collapsed">关于一加<i class="icon-fold"></i></dt>
+            <dd class="nav-slide text-sm">
+              <ul>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/aboutus">了解一加</a>
+                </li>
+                <li>
+                  <a href="https://careertest32.oneplus.com/cn">加入一加</a>
+                </li>
+                <li>
+                  <a href="https://wwwtest32.h2os.com">H2OS</a>
+                </li>
+                <li>
+                   <a href="https://cloudtest32.h2os.com">云服务</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <dt class="nav-trigger collapsed">服务支持<i class="icon-fold"></i></dt>
+            <dd class="nav-slide text-sm">
+              <ul>
+                <li>
+                  <a href="https://servicetest32.oneplus.com/cn/selfservice">自助服务</a>
+                </li>
+                <li>
+                  <a href="https://supporttest32.oneplus.com/cn">技术支持</a>
+                </li>
+                <li>
+                  <a href="https://servicetest32.oneplus.com/cn/faq?categoryId=A1000029">售后服务</a>
+                </li>
+                <li>
+                  <a href="https://wwwtest32.oneplus.com/cn/product/jiaduobao">一加加多保</a>
+                </li>
+              </ul>
+            </dd>
+          </dl>
+          <dl>
+            <div class="contact-us-cn">
+              <a class="one-tel-number service-number text-black" href="tel:4008881111"><i class="ico ico-call"></i>400-888-1111</a>
+              <a id="foo-service-chat-for-sobot" href="http://www.sobot.com/chat/pc/index.html?sysNum=8b1ffba807764bc3bf2da878e5bb3df6" style="margin-top:15px; margin-bottom: 15px;" class="one-button frozen btn-ghost btn-black btn-lg">在线客服</a>
+              <p class="one-tel-time service-available">周一至周日 9:00 - 22:00</p>
+              <span class="div-line"></span>
+              <p class="social-media">
+                <a href="javascript:;" class="link-gray link-wechat" target="_blank">
+                  <i class="ico ico-wechat"></i>
+                  <img class="wechat-qr-code" src="https://image01.oneplus.cn/shop/201801/25/61/f26d7e3fbe8ce7c4f3bd30d6b5be1ee5.png" alt="WeChat QR Code">
+                </a>
+                <a href="https://weibo.com/oneplusmobile" class="link-gray link-weibo" target="_blank">
+                  <svg height="60px" version="1.1" viewBox="0 0 60 60" width="60px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title/><desc/><defs/><g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1"><g id="Social_icons" transform="translate(-822.000000, -552.000000)"><g id="Weibo" transform="translate(822.000000, 552.000000)"><path d="M30,60 C46.5685425,60 60,46.5685425 60,30 C60,13.4314575 46.5685425,0 30,0 C13.4314575,0 0,13.4314575 0,30 C0,46.5685425 13.4314575,60 30,60 Z" fill="transparent" id="Oval"/><g id="Sina_Weibo" transform="translate(12.000000, 16.000000)"><path d="M3,19.5 C3,23.6426702 8.37408313,27 15,27 C21.6259169,27 27,23.6426702 27,19.5 C27,15.3573298 21.6259169,12 15,12 C8.37408313,12 3,15.3573298 3,19.5" fill="#FFFFFF" id="Shape"/><path d="M14.9311888,26.8682147 C9.04697649,27.4581739 3.96693983,24.7661752 3.58446602,20.8645124 C3.20199222,16.9578919 7.66418659,13.3189839 13.5434954,12.7290248 C19.4277078,12.1390656 24.5077444,14.8310642 24.8853147,18.7327271 C25.272692,22.6393476 20.8104977,26.2832132 14.9311888,26.8682147 M26.69471,13.9039855 C26.194552,13.7502986 25.8513063,13.6511458 26.1111923,12.986822 C26.6799995,11.5441487 26.7388416,10.299781 26.1209993,9.40740579 C24.9686744,7.74163867 21.8108138,7.8308762 18.1920232,9.36278703 C18.1920232,9.36278703 17.0544088,9.8635087 17.3486194,8.95626053 C17.9027161,7.14672185 17.8193564,5.63464158 16.9563386,4.75713925 C14.9949345,2.76912552 9.77269601,4.83150386 5.29579112,9.35782939 C1.94669359,12.7438977 0,16.3381868 0,19.4466273 C0,25.3858803 7.53669532,29 14.9066713,29 C24.5714901,29 30.9999921,23.3235019 30.9999921,18.817007 C31.0048956,16.0903048 28.7345703,14.5435211 26.69471,13.9039855" fill="#E6162D" id="Shape"/><path d="M33.4694908,3.0481144 C31.0328202,0.506552864 27.4392429,-0.460973402 24.1220947,0.203298363 L24.1220947,0.203298363 C23.3542363,0.357332395 22.867926,1.0697398 23.0317357,1.78696076 C23.1955455,2.50899529 23.9480468,2.96628382 24.7159052,2.81224979 C27.0757899,2.34052056 29.6301989,3.02886015 31.3604398,4.83394646 C33.0906807,6.63903278 33.5616338,9.09876374 32.8193707,11.2552402 L32.8193707,11.2552402 C32.5787751,11.9580205 32.9882996,12.7089364 33.7356817,12.9351739 C34.4830639,13.1614113 35.2816366,12.7763263 35.5222322,12.0783596 L35.5222322,12.073546 C36.5665197,9.04581454 35.9061614,5.58486237 33.4694908,3.0481144" fill="#FF9933" id="Shape"/><path d="M29.7237466,6.55374074 C28.4920804,5.25707362 26.6764347,4.76262468 25.0041293,5.1057117 C24.3192805,5.24193743 23.8839502,5.88774829 24.0272907,6.53860455 C24.17594,7.18946081 24.8501711,7.60318339 25.529711,7.46191226 L25.529711,7.46191226 C26.3472825,7.29541415 27.2391787,7.53759322 27.839085,8.16826789 C28.4389914,8.80398796 28.6035675,9.6667509 28.3434311,10.4235605 L28.3434311,10.4235605 C28.1310748,11.0542352 28.4920804,11.7353638 29.1610026,11.9422251 C29.8299247,12.144041 30.5413181,11.800954 30.7589832,11.1652339 C31.2845649,9.61629693 30.9554127,7.85040786 29.7237466,6.55374074" fill="#FF9933" id="Shape"/><path d="M15.8864165,20.2835677 C15.6671068,20.642386 15.1814925,20.811828 14.805533,20.6623204 C14.4295736,20.5177963 14.3146971,20.1141258 14.5287851,19.7652747 C14.7480948,19.4164236 15.2128225,19.2469816 15.5835603,19.386522 C15.9595197,19.5160953 16.0952829,19.9197659 15.8864165,20.2835677 M13.886521,22.7255255 C13.2808085,23.6474891 11.9806154,24.0511597 11.0041651,23.6275548 C10.0433798,23.2089334 9.75618855,22.1374622 10.361901,21.2354329 C10.9623918,20.3383872 12.2155901,19.9397002 13.1868187,20.32842 C14.1684906,20.7320906 14.4817902,21.7935947 13.886521,22.7255255 M16.1631644,16.1970262 C13.181597,15.4544717 9.8136268,16.8747941 8.51865531,19.3815385 C7.19757553,21.9381187 8.47688204,24.7787634 11.4845578,25.7057106 C14.60711,26.667543 18.2831581,25.1924012 19.5624646,22.4364774 C20.8261061,19.7353732 19.249165,16.9595151 16.1631644,16.1970262" fill="#000000" id="Shape"/></g></g></g></g></svg>
+                </a>
+              </p>
+            </div>
+          </dl>
+        </div>
+
+      </div>
+      <div class="container-infinite bg-warm-gray">
+        <div class="container-text">
+
+          <div class="contact-us">
+            <div class="current-store hidden-footer-not-xs">
+              <i class="cn"></i>中国( 简体中文/CNY )
+            </div>
+            <div class="link">
+              <ul>
+                <li><a href="https://accounttest32.oneplus.com/cn/agreement_privacy">隐私政策</a></li>
+                <li><a href="https://accounttest32.oneplus.com/cn/agreement">用户协议</a></li>
+                <li><a href="mailto:security@oneplus.com">安全问题反馈</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-tail-cn">
+            <div class="row">
+              <div class="col-sm-8 col-xs-12">
+                <p class="copy-right"><span class="no-wrap">© 2013-2018 OnePlus. All Rights Reserved.</span> <span class="no-wrap">(粤ICP备13080605号-4)</span></p><br>
+                <a class="under-supervision" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030402001407" target="_blank" track-key="d56663b49c29ea630fdebd39ba0a9acb" et-attached="1"><img src="https://staticstest32.oneplus.cn/ov/assets/images/footer/badge.png" alt="粤公网安备 44030402001407号">粤公网安备 44030402001407号</a>
+              </div>
+              <div class="col-sm-4 col-xs-12">
+                <div class="certificate-container">
+                  <a class="certificate-badge" href="https://ss.knet.cn/verifyseal.dll?sn=e14063044030050707awmq000000&amp;ct=df&amp;a=1&amp;pa=20151014" track-key="97fd6aef8e1b0f732c6abdfd2ffbb811" et-attached="1">
+                    <img src="https://staticstest32.oneplus.cn/ov/assets/images/footer/cnnic.png" width="83" height="30" alt="可信网站">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
       }
 
-      $('#back-with-html').on('click', function() {
-        $('html').scrollTop(0);
-      });
-      $('#back-with-body').on('click', function() {
-        $('body').scrollTop(0);
-      });
-      $('#back-with-document').on('click', function() {
-        $(document).scrollTop(0);
-      });
-      $('#back-with-window').on('click', function() {
-        $(window).scrollTop(0);
-      });
-      $('#back-with-animate').on('click', function() {
-        $('html, body').animate({scrollTop: 0});
-      });
-    };
+      if(document.getElementById('foo-service-chat-for-sobot')){
+        var el = document.getElementById('foo-service-chat-for-sobot'),
+            userName = getCookie('opnickname'),
+            email = getCookie('opuseremail'),
+            phone = getCookie('opuserphone'),
+            url = el.getAttribute('href');
+
+        if(userName){
+            url += '&uname=' + userName;
+        }
+        if(email && email != "" && email != "\"\""){
+            url += '&email=' + email;
+        }
+        if(phone && phone != "" && phone != "\"\""){
+            url += '&tel=' + phone;
+        }
+
+        el.setAttribute('href', url);
+      }
+    })();
   </script>
+
+  <section class="universal-loading-canvas" id="universal-loading-canvas">
+    <i class="univesal-loading-container">
+      <svg class="universal-spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+       <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </i>
+  </section>
+
+  <script type="text/javascript" src="https://staticstest32.oneplus.cn/ov/assets/scripts/vendor.js?20180921215439"></script>
+  <script type="text/javascript" src="https://staticstest32.oneplus.cn/ov/18801-explore/cn/index.js?20180921215439"></script>
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var a = document.createElement("script");
+      a.type = "text/javascript";
+      a.async = true;
+      a.src = "https://analytics.oneplus.cn/opdcV2.min.js?20180921215439";
+      var b = document.getElementsByTagName("script")[0x0];
+      b.parentNode.insertBefore(a, b);
+
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?3a59d601a13580387971f58e07f89889";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>    
+
 </body>
+
 </html>
