@@ -122,8 +122,9 @@
       <p>测试59</p>
       <p>测试60</p>
     </div>
+    <div id="back" class="back-btn">回到顶部</div>
   </div>
-  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.slim.min.js"></script>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
   <script>
     window.onload = function() {
       var count = 0;
@@ -136,7 +137,7 @@
 
       window.onscroll = function() {
         // var pageScroll = document.documentElement.scrollTop;
-        var pageScroll = $('html, body').scrollTop();
+        var pageScroll = $("html").scrollTop() || $("body").scrollTop();
         var delta = pageScroll - lastScrollTop; 
 
         fixedNav(delta, pageScroll, function() {
@@ -156,6 +157,10 @@
         }
         callback && callback();
       }
+
+      $('#back').on('click', function() {
+        $("html").scrollTop(0);
+      });
     };
   </script>
 </body>
