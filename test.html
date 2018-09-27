@@ -27,17 +27,17 @@
       width: 100%;
       height: 30px;
     }
-    #nav.fixed {
-      position: fixed;
-      top: 70px;
-      z-index: 1;
-    }
     .nav-list {
       width: 100%;
       height: 30px;
       background: #3F51B5;
       color: #fff;
       transform: translate3d(0, 0, 0);
+    }
+    .nav-list.fixed {
+      position: fixed;
+      top: 70px;
+      z-index: 1;
     }
     #content {
       padding-top: 30px;
@@ -137,11 +137,11 @@
       var lastScrollTop = 0;
       var navDom = document.getElementById('nav');
       var offsetTop = navDom.offsetTop - $('#count').outerHeight();
+      var targetDom = navDom.querySelector('.nav-list');
       var wrapper = document.getElementById('wrapper');
 
       window.onscroll = function() {
-        // var pageScroll = document.documentElement.scrollTop;
-        var pageScroll = $('html').scrollTop() || $('body').scrollTop();
+        var pageScroll = $(window).scrollTop();
         var delta = pageScroll - lastScrollTop; 
         var html = '';
 
@@ -162,10 +162,10 @@
       function fixedNav(delta, pageScroll, callback) {
         if (delta >= 0 && pageScroll >= offsetTop) {
           // 页面下滚
-          navDom.classList.add('fixed');
+          targetDom.classList.add('fixed');
         } else if (delta <= 0 && pageScroll <= offsetTop) {
           // 页面上滚
-          navDom.classList.remove('fixed');
+          targetDom.classList.remove('fixed');
         }
         callback && callback();
       }
